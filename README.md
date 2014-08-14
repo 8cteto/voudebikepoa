@@ -19,5 +19,7 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 
 ## Running
 * Install [Node.js](http://nodejs.org/)
+* Install [PostgreSQL](http://www.postgresql.org/) locally
+* Run database scripts `/resources/db.sql`
 * Run `npm install` to install dependencies listed in package.json
 * Run `node index.js` to run the app
