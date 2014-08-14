@@ -16,3 +16,8 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 * http://datapoa.com.br/dataset/ciclovias-implantadas
 * http://datapoa.com.br/dataset/espacos-culturais
 * http://datapoa.com.br/dataset/acidentes-de-transito
+
+## Running
+* Install [Node.js](http://nodejs.org/)
+* Run `npm install` to install dependencies listed in package.json
+* Run `node index.js` to run the app

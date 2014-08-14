@@ -1,0 +1,25 @@
+{
+  "name": "voudebike",
+  "version": "1.0.0",
+  "description": "Vou de bike",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/umovers/voudebike.git"
+  },
+  "keywords": [
+    "bike",
+    "guday",
+    "opendata"
+  ],
+  "dependencies": {
+    "express": "3.x"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umovers/voudebike/issues"
+  }
+}
