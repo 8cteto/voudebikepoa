@@ -13,7 +13,7 @@ app.get('/', function(req, res){
             return;
         }
 
-        db.query('SELECT \'Vour de Bike!\' as text', function(err, result) {
+        db.query('SELECT \'Vou de Bike!\' as text', function(err, result) {
             db.end();
             if (err) {
                 res.send('error running query', err);
