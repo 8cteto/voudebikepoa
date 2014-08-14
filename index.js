@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 
     db.connect(function(err) {
         if (err) {
-            res.send('could not connect to postgres');
+            console.log('could not connect to postgres' + err);
             return;
         }
 
