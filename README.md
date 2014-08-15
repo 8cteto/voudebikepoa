@@ -29,7 +29,7 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 
 ### To setup database
 * create a database called 'voudebike'
-* restore a database dump stored in 'resources/db.dmpc' using pg_restore: `pg_restore -U postgres -d voudebike -j 2 db.dmpc`
+* run the database script stored in 'resources/db.sql' psql or pgadmin III
 * run vacuum `vacuumdb -U postgres -d voudebike -z`
 
 ## Resources
