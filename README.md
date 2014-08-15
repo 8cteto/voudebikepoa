@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/umovers/voudebike.png?branch=master)](http://travis-ci.org/umovers/voudebike)
+
 #Vou de Bike POA
 
 Um aplicativo que permite traçar rota entre um ponto de partida e destino utilizando as bicicletas do BikePoa.
@@ -23,6 +25,7 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 * Restore database backup (see below)
 * Run `npm install` to install dependencies listed in package.json
 * Run `node index.js` to run the app
+* Run `npm test` to run tests
 
 ### To setup database
 * create a database called 'voudebike'
