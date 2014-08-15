@@ -1,11 +1,9 @@
 /*Monkey patch no bootstrap*/
 .row {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
 }
 
 body {
-    margin-bottom: 30px;
     overflow-x: hidden;
 }
 
@@ -25,15 +23,19 @@ header {
     text-shadow: 1px 1px #aaa;
 }
 
-.input-container input {
-    min-width: 300px;
-}
-
 section.content {
     color: #888;
     min-height: 350px;
-    margin: 20px auto;
     text-align: center;
+    padding: 0;
+}
+
+.input-container form {
+    padding: 1em;
+}
+
+.input-container input {
+    min-width: 300px;
 }
 
 footer {
@@ -46,5 +48,3 @@ footer {
     margin: 0px;
     padding: 0px
 }
-
-
