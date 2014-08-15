@@ -18,7 +18,8 @@
   "dependencies": {
     "express": "3.x",
     "pg": "3.x",
-    "logfmt": "1.x"
+    "logfmt": "1.x",
+    "ejs": "1.x"
   },
   "license": "MIT",
   "bugs": {
