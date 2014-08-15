@@ -69,15 +69,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body onload="getMyLocation()">
-    <div id="panel">
-    <b>Origem </b>
     
+    <div id="panel">
     <input type="hidden" id="start" value="">
-    <b>Destino </b>
-    <select id="end" onchange="calcRoute();">
-      <option value="">Select</option>
-      <option value="-30.026219,-51.213485">Nós</option>
-    </select>
+
+    <label>Destino
+      <input type="text" size="100" id="end" placeholder="Vá de bike para ...">
+    </label>
+    <button onclick="calcRoute()">Vai</button>
+    
     </div>
     <div id="map-canvas"></div>
   </body>
