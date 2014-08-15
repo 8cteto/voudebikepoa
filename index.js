@@ -3,6 +3,9 @@ var express = require('express'),
       pg = require('pg'); 
       app  = express();
 
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/views');
+
 app.get('/', function(req, res){
 
     db = new pg.Client(config.DATABASE_URL);
@@ -25,6 +28,10 @@ app.get('/', function(req, res){
       });
     });
 });
+
+app.get('/view-map', function(req, res){
+	res.render('index.html');
+});	
 
 app.listen(config.WEBAPP_PORT);
 console.log('Listening on port: ' + config.WEBAPP_PORT);
