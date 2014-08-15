@@ -27,6 +27,17 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 
+function getMyLocation(){
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(storePosition);
+  } 
+}
+
+function storePosition(position){
+    var geo = position.coords.latitude + ',' + position.coords.longitude;
+    document.getElementById('start').value=geo;
+}
+
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   var chicago = new google.maps.LatLng(-29.9199601,-51.0769099);
@@ -57,13 +68,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
   </head>
-  <body>
+  <body onload="getMyLocation()">
     <div id="panel">
     <b>Origem </b>
-    <select id="start" onchange="calcRoute();">
-      <option value="">Select</option>
-      <option value="Rua paraná, 2021, são geraldo, porto alegre, brasil">uMov.me</option>
-    </select>
+    
+    <input type="hidden" id="start" value="">
     <b>Destino </b>
     <select id="end" onchange="calcRoute();">
       <option value="">Select</option>

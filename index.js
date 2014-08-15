@@ -29,8 +29,8 @@ app.get('/', function(req, res){
     });
 });
 
-app.get('/view-map', function(req, res){
-	res.render('index.html');
+app.get('/go', function(req, res){
+	res.render('go.html');
 });	
 
 app.listen(config.WEBAPP_PORT);
