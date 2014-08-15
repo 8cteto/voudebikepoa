@@ -20,9 +20,14 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 ## Running
 * Install [Node.js](http://nodejs.org/)
 * Install [PostgreSQL](http://www.postgresql.org/) locally
-* Run database scripts `/resources/db.sql`
+* Restore database backup (see below)
 * Run `npm install` to install dependencies listed in package.json
 * Run `node index.js` to run the app
+
+### To setup database
+* create a database called 'voudebike'
+* restore a database dump stored in 'resources/db.dmpc' using pg_restore: `pg_restore -U postgres -d voudebike -j 2 db.dmpc`
+* run vacuum `vacuumdb -U postgres -d voudebike -z`
 
 ## Resources
 [Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
