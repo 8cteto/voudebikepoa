@@ -2,13 +2,29 @@ $(function() {
     var targetFrom = $('#targetFrom'),
           targetTo = $('#targetTo'),
           currentPosition = undefined,
+          directionsDisplay,
+          map,
+          directionsService = new google.maps.DirectionsService(),
           geocoder = new google.maps.Geocoder();
 
     function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var portoAlegre = new google.maps.LatLng(-30.0159,-51.1348);
+
+
+        var mapOptions = {
+            zoom:12,
+            center: portoAlegre
+        };
+
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        directionsDisplay.setMap(map);
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 currentPosition = position.coords.latitude + ',' + position.coords.longitude;
                 findAddresByGeoLocation(targetFrom, position.coords.latitude, position.coords.longitude);
+                markCurrentPositionOnMap(position);
             });
         } else {
             setNotFoundFromTarget();
@@ -47,5 +63,14 @@ $(function() {
         targetFrom.attr('placeholder', 'Digite o endereço de origem');
     }
 
-    initialize();
+    function markCurrentPositionOnMap(position){
+        var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        marcadorPraca = new google.maps.Marker({
+            position: initialLocation,
+            map: map,
+            title:"Meu Local",
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 });
