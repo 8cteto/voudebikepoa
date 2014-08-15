@@ -11,8 +11,8 @@ app.use(express.static(__dirname + '/assets'));
 app.use(partials());
 
 // controllers
-var indexController = require('./controllers/IndexController'),
-      bikeRackController = require('./controllers/BikeRackController');
+var indexController = require('./controllers/index'),
+      bikeRackController = require('./controllers/bikeRack');
 
 app.get('/', indexController.index);
 app.get('/go', indexController.go);
