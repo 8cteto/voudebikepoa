@@ -21,7 +21,8 @@
     "pg": "3.x",
     "logfmt": "1.x",
     "ejs": "1.x",
-    "newrelic": "1.x"
+    "newrelic": "1.x",
+    "jasmine-node": "1.x"
   },
   "license": "MIT",
   "bugs": {
@@ -29,5 +30,8 @@
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "scripts": {
+    "test": "jasmine-node --matchall --verbose spec/"
   }
 }
