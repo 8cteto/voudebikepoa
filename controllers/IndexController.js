@@ -18,7 +18,8 @@ var IndexController = function() {
                     return;
                 }
 
-                res.end(result.rows[0]['text']);
+                res.render('index.html', {text : result.rows[0]['text']});
+
                 db.end();
           });
         });

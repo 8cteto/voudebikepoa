@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Directions service</title>
     <style>
-      html, body, #map-canvas {
+      html, body, section, #map-canvas {
         height: 100%;
         margin: 0px;
         padding: 0px
@@ -21,7 +15,20 @@
         border: 1px solid #999;
       }
     </style>
+
+    <div id="panel">
+    <input type="hidden" id="start" value="">
+
+    <label>Destino
+      <input type="text" size="100" id="end" placeholder="Vá de bike para ...">
+    </label>
+    <button onclick="calcRoute()">Vai</button>
+    
+    </div>
+    <div id="map-canvas"></div>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
     <script>
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -65,20 +72,6 @@ function calcRoute() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+getMyLocation();
 
     </script>
-  </head>
-  <body onload="getMyLocation()">
-    
-    <div id="panel">
-    <input type="hidden" id="start" value="">
-
-    <label>Destino
-      <input type="text" size="100" id="end" placeholder="Vá de bike para ...">
-    </label>
-    <button onclick="calcRoute()">Vai</button>
-    
-    </div>
-    <div id="map-canvas"></div>
-  </body>
-</html>

@@ -1,11 +1,14 @@
 var express = require('express'),
       config  = require('./config'),
       engine = require('ejs'),
+      partials = require('express-partials'),
       app  = express();
 
 app.engine('html', engine.renderFile);
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/assets'))
+app.set('view engine', 'html');
+app.use(express.static(__dirname + '/assets'));
+app.use(partials());
 
 // controllers
 var indexController = require('./controllers/IndexController'),
