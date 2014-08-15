@@ -24,4 +24,7 @@
   "bugs": {
     "url": "https://github.com/umovers/voudebike/issues"
   }
+  "engines": {
+    "node": "0.10.x"
+  }
 }
