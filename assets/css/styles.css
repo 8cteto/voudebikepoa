@@ -11,6 +11,7 @@ header {
     color: #fff;
     text-align: center;
     padding: 2em 3em 3em 3em;
+    box-shadow: 2px 2px 2px #888;
 }
 
 .subtitle {
