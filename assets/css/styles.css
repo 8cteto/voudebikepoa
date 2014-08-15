@@ -1,8 +1,9 @@
 body {
     margin-bottom: 30px;
+    overflow-x: hidden;
 }
 
-section.header {
+header {
     background-color: #304860;
     color: #fff;
     text-align: center;
@@ -35,5 +36,6 @@ section.map-container {
 }
 
 footer {
+    text-align: center;
     color: #888;
 }
