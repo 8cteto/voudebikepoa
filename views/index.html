@@ -1,25 +1,8 @@
 <section class="row content">
     <div class="container-fluid input-container">
-        <form role="form" class="form-inline">
-            <div class="form-group">
-                <label for="targetFrom">Você está em:</label>
-                <input type="text" name="from" id="targetFrom" class="form-control" placeholder="Preenchido automaticamente" />
-            </div>
-            <div class="form-group">
-                <label for="targetTo">Quer ir para:</label>
-                <input type="text" name="to" id="targetTo" class="form-control" placeholder="Digite o destino"/>
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-default" id="routeButton">Ir de Bike</button>
-            </div>
-        </form>
-
-        <div class="map-container">
-            <div id="map-canvas"></div> 
-        </div>
-
+        <%- partial('_mapInput') %>
+        <%- partial('_map') %>
     </div>
 </section>    
-
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="/js/application.js"></script>
