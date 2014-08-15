@@ -1,0 +1,39 @@
+body {
+    margin-bottom: 30px;
+}
+
+section.header {
+    background-color: #304860;
+    color: #fff;
+    text-align: center;
+    padding: 2em;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+section.input-targets {
+    text-align: center;
+    margin: 1em;
+}
+
+section.input-targets input {
+    min-width: 300px;
+}
+
+section.map-container {
+    color: #888;
+    min-height: 400px;
+}
+
+.map-placeholder {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 2em;
+}
+
+footer {
+    color: #888;
+}

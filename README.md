@@ -23,3 +23,6 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 * Run database scripts `/resources/db.sql`
 * Run `npm install` to install dependencies listed in package.json
 * Run `node index.js` to run the app
+
+## Resources
+[Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
