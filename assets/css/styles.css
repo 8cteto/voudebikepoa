@@ -17,6 +17,13 @@ header {
     box-shadow: 2px 2px 2px #888;
 }
 
+@media (max-width: 600px) {
+    header {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
 .subtitle {
     font-size: 1.5em;
     font-weight: bold;
