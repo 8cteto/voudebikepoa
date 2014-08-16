@@ -11,7 +11,6 @@ $(function() {
         directionsDisplay = new google.maps.DirectionsRenderer();
         var portoAlegre = new google.maps.LatLng(-30.0159,-51.1348);
 
-
         var mapOptions = {
             zoom:12,
             center: portoAlegre

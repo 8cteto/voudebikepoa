@@ -11,15 +11,15 @@ var IndexController = function() {
                 return;
             }
 
-            db.query('SELECT \'Vou de Bike!\' as text', function(err, result) {
+            db.query('SELECT nome,latitude,longitude FROM Estacoes_bikePOA', function(err, result) {
                 db.end();
                 if (err) {
                     res.end('error running query', err);
                     return;
                 }
 
-                res.render('index.html', {text : result.rows[0]['text']});
-
+                console.log(result.rows[0]['nome']);
+                res.render('index.html', {text : result.rows[0]['nome']});
                 db.end();
           });
         });
