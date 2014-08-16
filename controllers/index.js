@@ -18,7 +18,6 @@ var IndexController = function() {
                     return;
                 }
 
-                console.log(result.rows[0]['nome']);
                 res.render('index.html', {text : result.rows[0]['nome']});
                 db.end();
           });
