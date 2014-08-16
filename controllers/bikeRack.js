@@ -11,14 +11,15 @@ var BikeRackController = function() {
 
         db.connect(function(err) {
             if (err) {
-                console.log('could not connect to postgres' + err);
+                console.error('error running query', err);
+                res.end();
                 return;
             }
 
             db.query('SELECT * FROM nearest_bikestation(point($1::text))', [latlng], function(err, result) {
-                db.end();
                 if (err) {
-                    res.end('error running query', err);
+                    console.error('error running query', err);
+                    res.end();
                     return;
                 }
 
