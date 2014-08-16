@@ -95,7 +95,7 @@ function markPoint(latitude,longitude, nameMarker) {
         position: newMarker,
         map: map,
         title: nameMarker,
-        icon:"/images/bike.png",
+        icon:"/images/icone-estacoes.gif",
     }); 
 }
 
