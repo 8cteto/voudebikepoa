@@ -90,6 +90,7 @@ function createRoute(startPoint, endPoint) {
 }
 
 function markPoint(latitude,longitude, nameMarker) {
+    nameMarker = nameMarker.replace(new RegExp('_', 'g')," ");
     var newMarker = new google.maps.LatLng(latitude,longitude);
     new google.maps.Marker({
         position: newMarker,
