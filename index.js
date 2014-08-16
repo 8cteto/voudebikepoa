@@ -14,9 +14,10 @@ partials.register('.html','ejs');
 
 // controllers
 var indexController = require('./controllers/index'),
-	bikeRackController = require('./controllers/bikeRack');
+      bikeRackController = require('./controllers/bikeRack');
 
 app.get('/', indexController.index);
+app.get('/nearestStation', bikeRackController.nearestStation);
 app.get('/go', indexController.go);
 
 app.listen(config.WEBAPP_PORT);
