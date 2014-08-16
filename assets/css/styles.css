@@ -62,6 +62,9 @@ footer {
 
 .social-link {
     display: inline-block;
-    height: 40px;
     vertical-align: top;
+}
+
+.credits {
+    padding: 2em;
 }
