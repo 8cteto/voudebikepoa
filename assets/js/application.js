@@ -1,5 +1,6 @@
 var targetFrom = $('#targetFrom'),
       targetTo = $('#targetTo'),
+      inputForm = $('#map-input-form'),
       directionsDisplay,
       map,
       directionsService = new google.maps.DirectionsService(),
@@ -50,6 +51,7 @@ function findAddresByGeoLocation(targetElement, lat, lng) {
             return;
         }
         targetFrom.val(results[1].formatted_address).attr('data-pos', joinPosition(lat, lng));
+        inputForm.trigger('addres-resolved');
     });
 }
 
@@ -68,8 +70,11 @@ function findGeoLocationByAddress(targetElement) {
         if (status != google.maps.GeocoderStatus.OK) 
             return;
 
-        var position = joinPosition(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-        targetElement.val(results[0].formatted_address).attr('data-post', position);
+        var result = results[0];
+
+        var position = joinPosition(result.geometry.location.lat(), result.geometry.location.lng());
+        targetElement.val(result.formatted_address).attr('data-pos', position);
+        inputForm.trigger('addres-resolved');
     });
 }
 
@@ -127,7 +132,7 @@ function addressAlreadyResolved(target) {
     return pos && pos.length > 0;
 }
 
-$('#map-input-form').on('submit', function(e) {
+inputForm.on('submit', function(e) {
     e.preventDefault();
 
     if (!hasAddress(targetFrom))
@@ -143,6 +148,11 @@ $('#map-input-form').on('submit', function(e) {
         findGeoLocationByAddress(targetTo);
 
 }).on('addres-resolved', function() {
+    alert(!hasAddress(targetFrom));
+    alert(!hasAddress(targetTo));
+    alert(!addressAlreadyResolved(targetFrom));
+    alert(!addressAlreadyResolved(targetTo));
+
     if (!hasAddress(targetFrom) || !hasAddress(targetTo) || !addressAlreadyResolved(targetFrom) || !addressAlreadyResolved(targetTo))
         return;
 
