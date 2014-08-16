@@ -1,11 +1,9 @@
 /*Monkey patch no bootstrap*/
 .row {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
 }
 
 body {
-    margin-bottom: 30px;
     overflow-x: hidden;
 }
 
@@ -19,24 +17,41 @@ header {
     box-shadow: 2px 2px 2px #888;
 }
 
+@media (max-width: 600px) {
+    header {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
 .subtitle {
     font-size: 1.5em;
     font-weight: bold;
     text-shadow: 1px 1px #aaa;
 }
 
-.input-container input {
-    min-width: 300px;
-}
-
 section.content {
     color: #888;
     min-height: 350px;
-    margin: 20px auto;
     text-align: center;
+    padding: 0;
+}
+
+.input-container form {
+    padding: 1em;
+}
+
+.input-container input {
+    min-width: 300px;
 }
 
 footer {
     text-align: center;
     color: #888;
+}
+
+#map-canvas {
+    height: 500px;
+    margin: 0px;
+    padding: 0px
 }

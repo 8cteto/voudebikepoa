@@ -10,6 +10,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.use(express.static(__dirname + '/assets'));
 app.use(partials());
+partials.register('.html','ejs'); 
 
 // controllers
 var indexController = require('./controllers/index'),
