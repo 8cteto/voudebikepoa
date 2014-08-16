@@ -30,10 +30,9 @@ function getNearestPosition(latlng, callback) {
 
 var BikeRackController = function() {
     this.nearestStation = function(req, res) {
-        var start =  url.parse(req.url, true).startPosition;
-        var end =  url.parse(req.url, true).endPosition;
-
-        var result = {};
+        var queryString = url.parse(req.url, true);
+        var start = queryString.query.startPosition;
+        var end = queryString.query.endPosition;
 
         getNearestPosition(start, function(startStation) {
             getNearestPosition(end, function(endStation) {
