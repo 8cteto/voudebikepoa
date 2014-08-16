@@ -9,14 +9,12 @@
 </section>    
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="/js/application.js"></script>
-<% for(var i=0; i<text.rows.length; i++) {%>
 
-    <script type="text/javascript">
-        setTimeout(function(){
-        markPoint(<%= text.rows[i]['latitude'] %>, <%= text.rows[i]['longitude']%>, '<%= text.rows[i]['nome']%>' );       
-        },2000);
-        
-        
-    </script>
-
-<% } %>
+<script>
+var BIKE_RACKS = [
+    <% for(var i=0; i<text.rows.length; i++) {%>
+    <% if(i>0) {%>,<% } %>
+        {lat: '<%= text.rows[i]['latitude'] %>', lng: '<%= text.rows[i]['longitude']%>', name:'<%= text.rows[i]['nome']%>'}
+    <% } %>
+]
+</script>
