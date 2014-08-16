@@ -12,7 +12,8 @@ function initialize() {
 
     var mapOptions = {
         zoom:12,
-        center: portoAlegre
+        center: portoAlegre,
+        scrollwheel:false
     };
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -90,13 +91,12 @@ function createRoute(startPoint, endPoint) {
 }
 
 function markPoint(latitude,longitude, nameMarker) {
-    nameMarker = nameMarker.replace(new RegExp('_', 'g')," ");
     var newMarker = new google.maps.LatLng(latitude,longitude);
     new google.maps.Marker({
         position: newMarker,
         map: map,
         title: nameMarker,
-        icon:"/images/icone-estacoes.gif",
+        icon:"/images/bike.png",
     }); 
 }
 
