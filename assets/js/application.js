@@ -55,6 +55,9 @@ $(function() {
                 return;
 
             targetElement.val(results[0].formatted_address);
+            var destinationPosition = results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng();
+
+            createRoute(currentPosition, destinationPosition);
         });
     }
 
@@ -69,6 +72,26 @@ $(function() {
             map: map,
             title:"Meu Local",
         });
+    }
+
+    function createRoute(startPoint, endPoint) {
+        var request = {
+            origin: startPoint,
+            destination: endPoint,
+            travelMode: google.maps.TravelMode.WALKING
+        };
+
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+        focusMap();
+    }
+
+    function focusMap() {
+        $(window).scrollTop($('.map-container').offset().top);
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
