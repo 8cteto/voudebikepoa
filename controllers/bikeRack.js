@@ -3,37 +3,47 @@ var  pg = require('pg'),
        config  = require('../config'),
        url = require('url');
 
-var BikeRackController = function() {
-    this.nearestStation = function(req, res) {
-        var latlng =  url.parse(req.url, true).position;
+function getNearestPosition(latlng, callback) {
+    var db = new pg.Client(config.DATABASE_URL);
 
-        db = new pg.Client(config.DATABASE_URL);
+    db.connect(function(err) {
+        if (err) {
+            console.error('error running query', err);
+            return;
+        }
 
-        db.connect(function(err) {
+        db.query('SELECT * FROM nearest_bikestation(point($1::text))', [latlng], function(err, result) {
             if (err) {
                 console.error('error running query', err);
-                res.end();
                 return;
             }
 
-            db.query('SELECT * FROM nearest_bikestation(point($1::text))', [latlng], function(err, result) {
-                if (err) {
-                    console.error('error running query', err);
-                    res.end();
-                    return;
-                }
-
-                res.setHeader("Content-Type", "text/json");
-
-                res.end(JSON.stringify({
-                    name: result.rows[0]['name'],
-                    lat: result.rows[0]['latitude'],
-                    lng: result.rows[0]['longitude']
-                }));
-
-                db.end();
+            callback({
+                name: result.rows[0]['name'],
+                lat: result.rows[0]['latitude'],
+                lng: result.rows[0]['longitude']
             });
+
         });
+    });
+}
+
+var BikeRackController = function() {
+    this.nearestStation = function(req, res) {
+        var start =  url.parse(req.url, true).startPosition;
+        var end =  url.parse(req.url, true).endPosition;
+
+        var result = {};
+
+        getNearestPosition(start, function(startStation) {
+            getNearestPosition(end, function(endStation) {
+                res.setHeader("Content-Type", "text/json");
+                res.end(JSON.stringify({
+                    start: startStation,
+                    end: endStation
+                }));
+            });
+        })
     };
 };
 

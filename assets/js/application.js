@@ -148,16 +148,17 @@ inputForm.on('submit', function(e) {
         findGeoLocationByAddress(targetTo);
 
 }).on('addres-resolved', function() {
-    alert(!hasAddress(targetFrom));
-    alert(!hasAddress(targetTo));
-    alert(!addressAlreadyResolved(targetFrom));
-    alert(!addressAlreadyResolved(targetTo));
-
     if (!hasAddress(targetFrom) || !hasAddress(targetTo) || !addressAlreadyResolved(targetFrom) || !addressAlreadyResolved(targetTo))
         return;
 
-    createRoute(targetFrom.attr('data-pos'), targetTo.attr('data-pos'));
+    resolveNearestAddresses(targetFrom.attr('data-pos'), targetTo.attr('data-pos'));
 });
 
+function resolveNearestAddresses(startPosition, endPosition) {
+    $.get('/nearestStation?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
+        console.log('Building route', data);
+        createRoute(joinPosition(data.start.lat, data.start.lng), joinPosition(data.end.lat, data.end.lng))
+    });
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
