@@ -11,7 +11,8 @@ function initialize() {
 
     var mapOptions = {
         zoom:12,
-        center: portoAlegre
+        center: portoAlegre,
+        scrollwheel:false
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
