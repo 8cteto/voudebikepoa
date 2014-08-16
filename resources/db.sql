@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.3.5
 -- Dumped by pg_dump version 9.3.5
--- Started on 2014-08-15 20:21:55 BRT
+-- Started on 2014-08-15 21:08:13 BRT
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -15,7 +15,7 @@ SET client_min_messages = warning;
 
 --
 -- TOC entry 176 (class 3079 OID 12018)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
@@ -24,7 +24,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 --
 -- TOC entry 2233 (class 0 OID 0)
 -- Dependencies: 176
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -37,8 +37,8 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 173 (class 1259 OID 16727)
--- Name: ciclovias_implantadas; Type: TABLE; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 170 (class 1259 OID 16422)
+-- Name: ciclovias_implantadas; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE ciclovias_implantadas (
@@ -50,11 +50,9 @@ CREATE TABLE ciclovias_implantadas (
 );
 
 
-ALTER TABLE public.ciclovias_implantadas OWNER TO seba;
-
 --
--- TOC entry 172 (class 1259 OID 16725)
--- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE; Schema: public; Owner: seba
+-- TOC entry 171 (class 1259 OID 16428)
+-- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE ciclovias_implantadas_id_seq
@@ -65,20 +63,18 @@ CREATE SEQUENCE ciclovias_implantadas_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ciclovias_implantadas_id_seq OWNER TO seba;
-
 --
 -- TOC entry 2234 (class 0 OID 0)
--- Dependencies: 172
--- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seba
+-- Dependencies: 171
+-- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE ciclovias_implantadas_id_seq OWNED BY ciclovias_implantadas.id;
 
 
 --
--- TOC entry 171 (class 1259 OID 16712)
--- Name: espacos_culturais; Type: TABLE; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 172 (class 1259 OID 16430)
+-- Name: espacos_culturais; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE espacos_culturais (
@@ -101,11 +97,9 @@ CREATE TABLE espacos_culturais (
 );
 
 
-ALTER TABLE public.espacos_culturais OWNER TO seba;
-
 --
--- TOC entry 170 (class 1259 OID 16710)
--- Name: espacos_culturais_id_seq; Type: SEQUENCE; Schema: public; Owner: seba
+-- TOC entry 173 (class 1259 OID 16436)
+-- Name: espacos_culturais_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE espacos_culturais_id_seq
@@ -116,20 +110,18 @@ CREATE SEQUENCE espacos_culturais_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.espacos_culturais_id_seq OWNER TO seba;
-
 --
 -- TOC entry 2235 (class 0 OID 0)
--- Dependencies: 170
--- Name: espacos_culturais_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seba
+-- Dependencies: 173
+-- Name: espacos_culturais_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE espacos_culturais_id_seq OWNED BY espacos_culturais.id;
 
 
 --
--- TOC entry 175 (class 1259 OID 16739)
--- Name: estacoes_bikepoa; Type: TABLE; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 175 (class 1259 OID 16461)
+-- Name: estacoes_bikepoa; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE estacoes_bikepoa (
@@ -137,17 +129,13 @@ CREATE TABLE estacoes_bikepoa (
     numero integer,
     nome text,
     latitude double precision,
-    longitude double precision,
-    latitude_t text,
-    longitude_t text
+    longitude double precision
 );
 
 
-ALTER TABLE public.estacoes_bikepoa OWNER TO seba;
-
 --
--- TOC entry 174 (class 1259 OID 16737)
--- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE; Schema: public; Owner: seba
+-- TOC entry 174 (class 1259 OID 16459)
+-- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE estacoes_bikepoa_id_seq
@@ -158,45 +146,43 @@ CREATE SEQUENCE estacoes_bikepoa_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.estacoes_bikepoa_id_seq OWNER TO seba;
-
 --
 -- TOC entry 2236 (class 0 OID 0)
 -- Dependencies: 174
--- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seba
+-- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE estacoes_bikepoa_id_seq OWNED BY estacoes_bikepoa.id;
 
 
 --
--- TOC entry 2105 (class 2604 OID 16730)
--- Name: id; Type: DEFAULT; Schema: public; Owner: seba
+-- TOC entry 2104 (class 2604 OID 16446)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ciclovias_implantadas ALTER COLUMN id SET DEFAULT nextval('ciclovias_implantadas_id_seq'::regclass);
 
 
 --
--- TOC entry 2104 (class 2604 OID 16715)
--- Name: id; Type: DEFAULT; Schema: public; Owner: seba
+-- TOC entry 2105 (class 2604 OID 16447)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY espacos_culturais ALTER COLUMN id SET DEFAULT nextval('espacos_culturais_id_seq'::regclass);
 
 
 --
--- TOC entry 2106 (class 2604 OID 16742)
--- Name: id; Type: DEFAULT; Schema: public; Owner: seba
+-- TOC entry 2106 (class 2604 OID 16464)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY estacoes_bikepoa ALTER COLUMN id SET DEFAULT nextval('estacoes_bikepoa_id_seq'::regclass);
 
 
 --
--- TOC entry 2223 (class 0 OID 16727)
--- Dependencies: 173
--- Data for Name: ciclovias_implantadas; Type: TABLE DATA; Schema: public; Owner: seba
+-- TOC entry 2220 (class 0 OID 16422)
+-- Dependencies: 170
+-- Data for Name: ciclovias_implantadas; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 INSERT INTO ciclovias_implantadas VALUES (1, 1, 'JOAO PESSOA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.211805918,-30.0471114369996],[-51.212130817,-30.0466880679996]]]}');
@@ -277,6 +263,7 @@ INSERT INTO ciclovias_implantadas VALUES (74, 74, 'LOUREIRO DA SILVA', 'NORTE', 
 INSERT INTO ciclovias_implantadas VALUES (75, 75, 'LOUREIRO DA SILVA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.229348592,-30.0384604719996],[-51.2296065049999,-30.0383269659996],[-51.229735568,-30.0382365339996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (76, 76, 'LOUREIRO DA SILVA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.2291155259999,-30.0385499579996],[-51.229348592,-30.0384604719996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (77, 77, 'LOUREIRO DA SILVA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.2272035789999,-30.0383018209996],[-51.227471543,-30.0384547099996],[-51.227651522,-30.0385265649996],[-51.227892562,-30.0385938019996]]]}');
+INSERT INTO ciclovias_implantadas VALUES (164, 164, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.147021195,-30.1497838419996],[-51.146209201,-30.1501320419996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (78, 78, 'LOUREIRO DA SILVA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.228419511,-30.0386549059996],[-51.228733588,-30.0386408289996],[-51.2291155259999,-30.0385499579996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (79, 79, 'LOUREIRO DA SILVA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.227892562,-30.0385938019996],[-51.228253628,-30.0386551939996],[-51.228419511,-30.0386549059996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (80, 80, 'IPIRANGA', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.205313033,-30.0434773639996],[-51.20540799,-30.0434884909996],[-51.205851963,-30.0436073219996],[-51.206177909,-30.0437612909996]]]}');
@@ -362,7 +349,6 @@ INSERT INTO ciclovias_implantadas VALUES (160, 160, 'SILVA SO', 'NORTE', '{"type
 INSERT INTO ciclovias_implantadas VALUES (161, 161, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.1490701079999,-30.1489008969996],[-51.147868187,-30.1494186839996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (162, 162, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.150987158,-30.1482435849996],[-51.150604127,-30.1483669309996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (163, 163, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.150604127,-30.1483669309996],[-51.150123027,-30.1485219589996]]]}');
-INSERT INTO ciclovias_implantadas VALUES (164, 164, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.147021195,-30.1497838419996],[-51.146209201,-30.1501320419996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (165, 165, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.146209201,-30.1501320419996],[-51.1458031939999,-30.1503005019996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (166, 166, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.152942008,-30.1475072719996],[-51.1529470199999,-30.1476019819996],[-51.152276128,-30.1478260219996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (167, 167, 'ECON NILO WULFF', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.152276128,-30.1478260219996],[-51.151389152,-30.1481134509996]]]}');
@@ -406,17 +392,17 @@ INSERT INTO ciclovias_implantadas VALUES (203, 203, 'TRES MENINAS', 'SUL', '{"ty
 
 --
 -- TOC entry 2237 (class 0 OID 0)
--- Dependencies: 172
--- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seba
+-- Dependencies: 171
+-- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('ciclovias_implantadas_id_seq', 203, true);
 
 
 --
--- TOC entry 2221 (class 0 OID 16712)
--- Dependencies: 171
--- Data for Name: espacos_culturais; Type: TABLE DATA; Schema: public; Owner: seba
+-- TOC entry 2222 (class 0 OID 16430)
+-- Dependencies: 172
+-- Data for Name: espacos_culturais; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 INSERT INTO espacos_culturais VALUES (153, 'Av. Wenceslau Escobar, 2369', '205', 'Porto Alegre', 'RS', '91900-000', 'Academia Compasso Musical', '(51)3268-2085', 'Tristeza', 'SUL', NULL, 'ESPAÇO DE FORMAÇÃO CULTURAL', 'música', NULL, NULL, 'Avenida Wenceslau Escobar, 2369 - Tristeza, Porto Alegre - RS, 91900-000, República Federativa do Brasil');
@@ -496,6 +482,7 @@ INSERT INTO espacos_culturais VALUES (70, 'Av. Independência, 745', NULL, 'Port
 INSERT INTO espacos_culturais VALUES (71, 'Av. Independência, 75', NULL, 'Porto Alegre', 'RS', '90010-300', 'Museu da Santa Casa Irmão Joaquim Francisco do Livramento', '(51)32137258', 'Centro Historico', 'CENTRO', 'www.centrohistoricosantacasa.com.br', 'ESPAÇO CULTURAL', NULL, -30.0294020752710011, -51.2182367843490027, 'Av. Independência, 75 Porto Alegre, RS 90010-300');
 INSERT INTO espacos_culturais VALUES (72, 'Av. Independência, 925', NULL, 'Porto Alegre', 'RS', '90035-075', 'Teatro da OSPA  ', '(51)3311-7919', 'Independencia', 'CENTRO', ' www.ospa.org.br', 'ESPAÇO CULTURAL', NULL, -30.029501109971001, -51.2116484538300014, 'Av. Independência, 925 Porto Alegre, RS 90035-075');
 INSERT INTO espacos_culturais VALUES (73, 'Av. Ipiranga, 2000', NULL, 'Porto Alegre', 'RS', '90160-093', 'Planetário Professor José Batista Pereira UFRGS', '(51)3316-5384', 'Santana', 'CENTRO', 'http://www.planetario.ufrgs.br/', 'ESPAÇO CULTURAL', NULL, -30.0446106349659985, -51.2084571288350006, 'Av. Ipiranga, 2000 Porto Alegre, RS 90160-093');
+INSERT INTO espacos_culturais VALUES (101, 'Av. Mariland, 597', NULL, 'Porto Alegre', 'RS', '90440-190', 'Via Livia Galeria de Arte', '(51)3325-1695', 'Auxiliadora', 'CENTRO', NULL, 'ESPAÇO CULTURAL', NULL, -30.0192056508790017, -51.1926693526519969, 'Av. Mariland, 597 Porto Alegre, RS 90440-190');
 INSERT INTO espacos_culturais VALUES (74, 'Av. Ipiranga, 2752', ' 2º andar Prédio 21106', 'Porto Alegre', 'RS', '90160-093', 'Biblioteca UFRGS Farmácia', '(51)3308-5234', 'Santa Cecilia', 'CENTRO', 'http://paginas.ufrgs.br/farmacia/infraestrutura/biblioteca-1', 'ESPAÇO DE FORMAÇÃO CULTURAL', 'livro, leitura', -30.0430750040289993, -51.2027697708260021, 'Avenida Ipiranga, 2752 - Santa Cecília, Porto Alegre - RS, 90160-093, República Federativa do Brasil');
 INSERT INTO espacos_culturais VALUES (75, 'Av. Ipiranga, 389', NULL, 'Porto Alegre', 'RS', '90160-090', 'Centros de Desenvolvimento da Expressão', '(51)3233-5032', 'Menino Deus', 'CENTRO', NULL, 'ESPAÇO DE FORMAÇÃO CULTURAL', 'música, artes plásticas, dança, teatro', -30.0483397011079987, -51.2240092367350002, 'Av. Ipiranga, 389 Porto Alegre, RS 90160-090');
 INSERT INTO espacos_culturais VALUES (76, 'Av. Ipiranga, 5200', ' 2º andar', 'Porto Alegre', 'RS', '90160-001', 'Cinemark Shopping Bourbon Ipiranga', '(51)3315-4299', 'Jardim Botanico', 'CENTRO', 'http://www.cinemark.com.br', 'ESPAÇO DE FORMAÇÃO CULTURAL', NULL, -30.05497842686, -51.1893631105419971, 'Avenida Ipiranga, 5200 - Jardim Botânico, Porto Alegre - RS, 90160-001, República Federativa do Brasil');
@@ -522,7 +509,6 @@ INSERT INTO espacos_culturais VALUES (97, 'Av. Loureiro da Silva, 255', NULL, 'P
 INSERT INTO espacos_culturais VALUES (98, 'Av. Loureiro da Silva, 255', NULL, 'Porto Alegre', 'RS', '90010-420', 'Galeria Clébio Sória', '(51)3220-4100', 'Centro Historico', 'CENTRO', 'http://www.camarapoa.rs.gov.br/', 'ESPAÇO CULTURAL', NULL, -30.0251687976100001, -51.2025787517570024, 'Av. Loureiro da Silva, 255 Porto Alegre, RS 90010-420');
 INSERT INTO espacos_culturais VALUES (99, 'Av. Loureiro da Silva, 945', NULL, 'Porto Alegre', 'RS', '90010-420', 'Auditório da Escola Técnica Parobé', '(51)3221-6953', 'Centro Historico', 'CENTRO', NULL, 'ESPAÇO CULTURAL', NULL, -30.0386398484879997, -51.2290697809890005, 'Av. Loureiro da Silva, 945 Porto Alegre, RS 90010-420');
 INSERT INTO espacos_culturais VALUES (100, 'Av. Mariland, 1076', NULL, 'Porto Alegre', 'RS', '90440-191', 'Espaço Calliandra', '(51)3333-5255', 'Auxiliadora', 'CENTRO', NULL, 'ESPAÇO CULTURAL', NULL, -30.0196732085479994, -51.1941041360669971, 'Av. Mariland, 1076 Porto Alegre, RS 90440-191');
-INSERT INTO espacos_culturais VALUES (101, 'Av. Mariland, 597', NULL, 'Porto Alegre', 'RS', '90440-190', 'Via Livia Galeria de Arte', '(51)3325-1695', 'Auxiliadora', 'CENTRO', NULL, 'ESPAÇO CULTURAL', NULL, -30.0192056508790017, -51.1926693526519969, 'Av. Mariland, 597 Porto Alegre, RS 90440-190');
 INSERT INTO espacos_culturais VALUES (102, 'Av. Mauá, 1238', ' Estação Mercado', 'Porto Alegre', 'RS', '90020-003', 'Biblioteca Livros sobre Trilhos', '(51)3363-8477', 'Centro Historico', 'CENTRO', 'http://www.trensurb.gov.br/paginas/galeria_projetos_detalhes.php?codigo_sitemap=66&codigo_sitemap_pai=5', 'ESPAÇO DE FORMAÇÃO CULTURAL', 'livro', -30.026471591391001, -51.2284430306670018, 'Avenida Mauá, 1238 - Marcílio Dias, Porto Alegre - RS, 90010-080, República Federativa do Brasil');
 INSERT INTO espacos_culturais VALUES (103, 'Av. Moab Caldas, 2035', NULL, 'Porto Alegre', 'RS', '90880-310', 'Cinema Meio RealSala Sayonara da Luz Santos', '(51)8123-3195', 'Santa Tereza', 'CRUZEIRO', 'http://www.mariamulher.org.br/cinema.htm', 'ESPAÇO DE FORMAÇÃO CULTURAL', NULL, -30.0686925152980002, -51.2161728328970014, 'Av. Moab Caldas, 2035 Porto Alegre, RS 90880-310');
 INSERT INTO espacos_culturais VALUES (104, 'Av. Moab Caldas, 400', NULL, 'Porto Alegre', 'RS', '90880-310', 'Auditório do Centro de Saúde Vila dos Comerciários ', '(51)3289-4052', 'Santa Tereza', 'CRUZEIRO', NULL, 'ESPAÇO CULTURAL', NULL, -30.0686905371409985, -51.2161760499740026, 'Av. Moab Caldas, 400 Porto Alegre, RS 90880-310');
@@ -811,33 +797,71 @@ INSERT INTO espacos_culturais VALUES (388, 'Travessa Paz, 44', NULL, 'Porto Aleg
 
 --
 -- TOC entry 2238 (class 0 OID 0)
--- Dependencies: 170
--- Name: espacos_culturais_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seba
+-- Dependencies: 173
+-- Name: espacos_culturais_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('espacos_culturais_id_seq', 388, true);
 
 
 --
--- TOC entry 2225 (class 0 OID 16739)
+-- TOC entry 2225 (class 0 OID 16461)
 -- Dependencies: 175
--- Data for Name: estacoes_bikepoa; Type: TABLE DATA; Schema: public; Owner: seba
+-- Data for Name: estacoes_bikepoa; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO estacoes_bikepoa VALUES (1, 1, 'Mercado', -30.0287557400000011, -51.2267644799999999);
+INSERT INTO estacoes_bikepoa VALUES (2, 2, 'Praca_da_Alfandega', -30.0292978400000017, -51.2319527499999978);
+INSERT INTO estacoes_bikepoa VALUES (3, 3, 'Casa_de_Cultura_Mario_Quintana', -30.0308396399999999, -51.2349376499999991);
+INSERT INTO estacoes_bikepoa VALUES (4, 4, 'Usina_do_Gasometro', -30.0346825600000003, -51.241007009999997);
+INSERT INTO estacoes_bikepoa VALUES (5, 5, 'Camara_Vereadores', -30.0374204499999991, -51.2372332899999989);
+INSERT INTO estacoes_bikepoa VALUES (6, 6, 'Largo_Zumbi', -30.0383174799999999, -51.2260500499999978);
+INSERT INTO estacoes_bikepoa VALUES (7, 7, 'Botafogo', -30.0540135399999997, -51.2271986900000016);
+INSERT INTO estacoes_bikepoa VALUES (8, 8, 'Redencao UFRGS', -30.0347238300000008, -51.2177452199999976);
+INSERT INTO estacoes_bikepoa VALUES (9, 9, 'Republica', -30.0382760699999984, -51.2231065499999971);
+INSERT INTO estacoes_bikepoa VALUES (10, 10, 'Redencao_mercadinho', -30.0362414599999994, -51.2108988000000025);
+INSERT INTO estacoes_bikepoa VALUES (11, 13, 'Hospital_de_Clinicas', -30.0396244500000016, -51.2081468100000023);
+INSERT INTO estacoes_bikepoa VALUES (12, 11, 'Ginasio_Tesourinha', -30.0452480699999995, -51.2193591600000033);
+INSERT INTO estacoes_bikepoa VALUES (13, 12, 'Shopping_Praia_de_Belas', -30.0482063199999985, -51.2291931899999966);
+INSERT INTO estacoes_bikepoa VALUES (14, 15, 'Opiniao', -30.0419442100000005, -51.2209083899999982);
+INSERT INTO estacoes_bikepoa VALUES (15, 14, 'Planetario', -30.0438748500000017, -51.2072851100000008);
+INSERT INTO estacoes_bikepoa VALUES (16, 17, 'Menino_Deus', -30.0595513200000006, -51.2307423099999966);
+INSERT INTO estacoes_bikepoa VALUES (17, 19, 'Ibere', -30.0772252800000004, -51.2450375100000031);
+INSERT INTO estacoes_bikepoa VALUES (18, 18, 'Terminal_Azenha', -30.0500131800000005, -51.2095607600000022);
+INSERT INTO estacoes_bikepoa VALUES (19, 20, 'Diario_de_Noticias', -30.0979751100000001, -51.2481730000000013);
+INSERT INTO estacoes_bikepoa VALUES (20, 22, 'Nacional', -30.0607471900000007, -51.2206718899999984);
+INSERT INTO estacoes_bikepoa VALUES (21, 23, 'Harmonia', -30.0398292100000006, -51.2372161199999994);
+INSERT INTO estacoes_bikepoa VALUES (22, 24, 'Cabral', -30.0336815299999991, -51.2048763100000031);
+INSERT INTO estacoes_bikepoa VALUES (23, 25, 'Fernandes_Vieira', -30.0318503899999989, -51.2108136100000024);
+INSERT INTO estacoes_bikepoa VALUES (24, 26, 'Barros_Cassal', -30.0307610300000007, -51.2172801500000006);
+INSERT INTO estacoes_bikepoa VALUES (25, 27, 'Parcao_I', -30.0284834499999995, -51.2004991599999997);
+INSERT INTO estacoes_bikepoa VALUES (26, 29, 'Parcao_II', -30.02599807, -51.2009919300000007);
+INSERT INTO estacoes_bikepoa VALUES (27, 28, 'Zaffari_Ipiranga', -30.0434970099999994, -51.1998713999999993);
+INSERT INTO estacoes_bikepoa VALUES (28, 32, 'Nilopolis', -30.0389300400000003, -51.1931097800000003);
+INSERT INTO estacoes_bikepoa VALUES (29, 30, 'Praca_da_Encol', -30.036843189999999, -51.1882203799999971);
+INSERT INTO estacoes_bikepoa VALUES (30, 34, 'Barra_Shopping', -30.0825067900000001, -51.247147609999999);
+INSERT INTO estacoes_bikepoa VALUES (31, 39, 'Icarai', -30.0838934999999985, -51.2404550799999967);
+INSERT INTO estacoes_bikepoa VALUES (32, 31, 'Santana', -30.03971752, -51.2139305199999981);
+INSERT INTO estacoes_bikepoa VALUES (33, 33, 'Julinho', -30.0440183199999993, -51.2138674500000022);
+INSERT INTO estacoes_bikepoa VALUES (34, 35, 'Escola_Parobe', -30.0375453899999982, -51.231363530000003);
+INSERT INTO estacoes_bikepoa VALUES (35, 36, 'Regiao_dos_Tribunais', -30.042955899999999, -51.2289142200000001);
+INSERT INTO estacoes_bikepoa VALUES (36, 40, 'Praca_da_Matriz', -30.0324369199999985, -51.2304710200000031);
+INSERT INTO estacoes_bikepoa VALUES (37, 37, 'Casa_do_Estudante', -30.0325152300000013, -51.2232053500000006);
+INSERT INTO estacoes_bikepoa VALUES (38, 38, 'Getulio_Vargas', -30.0544064300000002, -51.2222993700000018);
 
 
 --
 -- TOC entry 2239 (class 0 OID 0)
 -- Dependencies: 174
--- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seba
+-- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('estacoes_bikepoa_id_seq', 1, false);
+SELECT pg_catalog.setval('estacoes_bikepoa_id_seq', 38, true);
 
 
 --
--- TOC entry 2110 (class 2606 OID 16735)
--- Name: ciclovias_implantadas_pkey; Type: CONSTRAINT; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 2108 (class 2606 OID 16450)
+-- Name: ciclovias_implantadas_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY ciclovias_implantadas
@@ -845,8 +869,8 @@ ALTER TABLE ONLY ciclovias_implantadas
 
 
 --
--- TOC entry 2108 (class 2606 OID 16720)
--- Name: espacos_culturais_pkey; Type: CONSTRAINT; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 2110 (class 2606 OID 16452)
+-- Name: espacos_culturais_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY espacos_culturais
@@ -854,8 +878,8 @@ ALTER TABLE ONLY espacos_culturais
 
 
 --
--- TOC entry 2112 (class 2606 OID 16747)
--- Name: estacoes_bikepoa_pkey; Type: CONSTRAINT; Schema: public; Owner: seba; Tablespace: 
+-- TOC entry 2112 (class 2606 OID 16469)
+-- Name: estacoes_bikepoa_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY estacoes_bikepoa
@@ -865,7 +889,7 @@ ALTER TABLE ONLY estacoes_bikepoa
 --
 -- TOC entry 2232 (class 0 OID 0)
 -- Dependencies: 6
--- Name: public; Type: ACL; Schema: -; Owner: seba
+-- Name: public; Type: ACL; Schema: -; Owner: -
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
@@ -874,7 +898,7 @@ GRANT ALL ON SCHEMA public TO seba;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2014-08-15 20:21:55 BRT
+-- Completed on 2014-08-15 21:08:13 BRT
 
 --
 -- PostgreSQL database dump complete
