@@ -13,6 +13,8 @@ function getNearestPosition(latlng, callback) {
         }
 
         db.query('SELECT * FROM nearest_bikestation(point($1::text))', [latlng], function(err, result) {
+            db.end();
+
             if (err) {
                 console.error('error running query', err);
                 return;
@@ -23,7 +25,6 @@ function getNearestPosition(latlng, callback) {
                 lat: result.rows[0]['latitude'],
                 lng: result.rows[0]['longitude']
             });
-
         });
     });
 }
