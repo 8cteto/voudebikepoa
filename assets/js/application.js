@@ -89,12 +89,12 @@ function createRoute(startPoint, endPoint) {
     focusMap();
 }
 
-function markPoint(latitude,longitude) {
+function markPoint(latitude,longitude, nameMarker) {
     var newMarker = new google.maps.LatLng(latitude,longitude);
     new google.maps.Marker({
         position: newMarker,
         map: map,
-        title:"Meu Local",
+        title: nameMarker,
         icon:"/images/bike.png",
     }); 
 }
