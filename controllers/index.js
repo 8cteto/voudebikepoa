@@ -7,14 +7,15 @@ var IndexController = function() {
 
         db.connect(function(err) {
             if (err) {
-                console.log('could not connect to postgres' + err);
+                console.error('could not connect to postgres' + err);
+                res.end();
                 return;
             }
 
             db.query('SELECT nome,latitude,longitude FROM Estacoes_bikePOA', function(err, result) {
-                db.end();
                 if (err) {
-                    res.end('error running query', err);
+                    console.error('error running query', err);
+                    res.end();
                     return;
                 }
                 res.render('index.html', {text : result});
