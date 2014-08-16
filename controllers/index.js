@@ -17,8 +17,7 @@ var IndexController = function() {
                     res.end('error running query', err);
                     return;
                 }
-
-                res.render('index.html', {text : result.rows[0]['nome']});
+                res.render('index.html', {text : result});
                 db.end();
           });
         });
