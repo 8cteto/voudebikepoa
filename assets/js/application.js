@@ -50,7 +50,7 @@ function findAddresByGeoLocation(targetElement, lat, lng) {
             setNotFoundFromTarget();
             return;
         }
-        targetFrom.val(results[1].formatted_address).attr('data-pos', joinPosition(lat, lng));
+        targetFrom.val(results[0].formatted_address).attr('data-pos', joinPosition(lat, lng));
         inputForm.trigger('addres-resolved');
     });
 }
