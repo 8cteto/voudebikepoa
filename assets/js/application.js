@@ -6,6 +6,10 @@ var targetFrom = $('#targetFrom'),
       directionsService = new google.maps.DirectionsService(),
       geocoder = new google.maps.Geocoder();
 
+$().add(targetFrom).add(targetTo).on('change', function(e) {
+    $(this).attr('data-pos', '');
+});
+
 function initialize() {
     var portoAlegre = new google.maps.LatLng(-30.0159,-51.1348);
 
@@ -51,7 +55,7 @@ function findAddresByGeoLocation(targetElement, lat, lng) {
             return;
         }
         targetFrom.val(results[0].formatted_address).attr('data-pos', joinPosition(lat, lng));
-        inputForm.trigger('addres-resolved');
+        inputForm.trigger('address-resolved');
     });
 }
 
@@ -74,7 +78,7 @@ function findGeoLocationByAddress(targetElement) {
 
         var position = joinPosition(result.geometry.location.lat(), result.geometry.location.lng());
         targetElement.val(result.formatted_address).attr('data-pos', position);
-        inputForm.trigger('addres-resolved');
+        inputForm.trigger('address-resolved');
     });
 }
 
@@ -147,7 +151,7 @@ inputForm.on('submit', function(e) {
     if (!addressAlreadyResolved(targetTo))
         findGeoLocationByAddress(targetTo);
 
-}).on('addres-resolved', function() {
+}).on('address-resolved', function() {
     if (!hasAddress(targetFrom) || !hasAddress(targetTo) || !addressAlreadyResolved(targetFrom) || !addressAlreadyResolved(targetTo))
         return;
 
