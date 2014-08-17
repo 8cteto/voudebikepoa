@@ -10,11 +10,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.use(express.static(__dirname + '/assets'));
 app.use(partials());
-partials.register('.html','ejs'); 
+partials.register('.html', 'ejs');
 
 // controllers
 var indexController = require('./controllers/index'),
-      bikeRackController = require('./controllers/bikeRack');
+	bikeRackController = require('./controllers/bikeRack');
 
 app.get('/', indexController.index);
 app.get('/nearestStation', bikeRackController.nearestStation);

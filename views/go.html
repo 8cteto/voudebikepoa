@@ -1,77 +1,75 @@
-    <style>
-      html, body, section, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-      #panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-    </style>
+<style>
+	html, body, section, #map-canvas {
+		height: 100%;
+		margin: 0px;
+		padding: 0px
+	}
+	#panel {
+		position: absolute;
+		top: 5px;
+		left: 50%;
+		margin-left: -180px;
+		z-index: 5;
+		background-color: #fff;
+		padding: 5px;
+		border: 1px solid #999;
+	}
+</style>
 
-    <div id="panel">
-    <input type="hidden" id="start" value="">
+<div id="panel">
+	<input type="hidden" id="start" value="">
 
-    <label>Destino
-      <input type="text" size="100" id="end" placeholder="Vá de bike para ...">
-    </label>
-    <button onclick="calcRoute()">Vai</button>
-    
-    </div>
-    <div id="map-canvas"></div>
+	<label>Destino
+		<input type="text" size="100" id="end" placeholder="Vá de bike para ...">
+	</label>
+	<button onclick="calcRoute()">Vai</button>
+</div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<div id="map-canvas"></div>
 
-    <script>
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script>
+	var directionsDisplay;
+	var directionsService = new google.maps.DirectionsService();
+	var map;
 
-function getMyLocation(){
-  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(storePosition);
-  } 
-}
+	function getMyLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(storePosition);
+		} 
+	}
 
-function storePosition(position){
-    var geo = position.coords.latitude + ',' + position.coords.longitude;
-    document.getElementById('start').value=geo;
-}
+	function storePosition(position) {
+		var geo = position.coords.latitude + ',' + position.coords.longitude;
+		document.getElementById('start').value = geo;
+	}
 
-function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(-29.9199601,-51.0769099);
-  var mapOptions = {
-    zoom:7,
-    center: chicago
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsDisplay.setMap(map);
-}
+	function initialize() {
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		var chicago = new google.maps.LatLng(-29.9199601,-51.0769099);
+		var mapOptions = {
+			zoom: 7,
+			center: chicago
+		};
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		directionsDisplay.setMap(map);
+	}
 
-function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
-  var request = {
-      origin:start,
-      destination:end,
-      travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
+	function calcRoute() {
+		var start = document.getElementById('start').value;
+		var end = document.getElementById('end').value;
+		var request = {
+			origin: start,
+			destination: end,
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+		directionsService.route(request, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+			}
+		});
+	}
 
-google.maps.event.addDomListener(window, 'load', initialize);
-getMyLocation();
-
-    </script>
+	google.maps.event.addDomListener(window, 'load', initialize);
+	getMyLocation();
+</script>

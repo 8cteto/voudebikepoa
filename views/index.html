@@ -1,20 +1,21 @@
-<script >
-
+<script>
 </script>
+
 <section class="row content">
-    <div class="container-fluid input-container">
-        <%- partial('_mapInput') %>
-        <%- partial('_map') %>
-    </div>
-</section>    
+	<div class="container-fluid input-container">
+		<%- partial('_mapInput') %>
+		<%- partial('_map') %>
+	</div>
+</section>
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="/js/application.js"></script>
 
 <script>
-var BIKE_RACKS = [
-    <% for(var i=0; i<text.rows.length; i++) {%>
-    <% if(i>0) {%>,<% } %>
-        {lat: '<%= text.rows[i]['latitude'] %>', lng: '<%= text.rows[i]['longitude']%>', name:'<%= text.rows[i]['nome']%>'}
-    <% } %>
-]
+	var BIKE_RACKS = [
+		<% for(var i=0; i<text.rows.length; i++) {%>
+			<% if(i>0) {%>,<% } %>
+				{lat: '<%= text.rows[i]['latitude'] %>', lng: '<%= text.rows[i]['longitude']%>', name:'<%= text.rows[i]['nome']%>'}
+		<% } %>
+	]
 </script>

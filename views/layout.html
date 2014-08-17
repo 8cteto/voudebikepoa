@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="/images/bike.png">
-        <title>Vou de Bike!</title>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-        <%- partial('_ga') %>
-    </head>
-    <body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="/images/bike.png">
+		<title>Vou de Bike!</title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/css/styles.css">
+		<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+		<%- partial('_ga') %>
+	</head>
 
-        <header class="row">
-            <div class="col-md-12">
-                <a href="/"><img src="/images/logo.png" class="logo"></a>
-                <div class="subtitle">Escolha seu destino e diremos a você como ir de bike utilizando o BikePoa!</div>
-            </div>
-        </header>
+	<body>
+		<header class="row">
+			<div class="col-md-12">
+				<a href="/"><img src="/images/logo.png" class="logo"></a>
+				<div class="subtitle">Escolha seu destino e diremos a você como ir de bike utilizando o BikePoa!</div>
+			</div>
+		</header>
 
-        <section id="content" class="row">
-            <%- body %>
-        </section>
-        <footer class="row">
-            <hr>
-            <div class="social-links col-md-12">
-                <%- partial('_fblike') %>
-                <%- partial('_gPlusButton') %>
-                <%- partial('_twitter') %>
-                <%- partial('_ghwatch') %>
-            </div>
-            <div class="col-md-12 credits">
-                Projeto de <a href="http://github.com/umovers/voudebike">código aberto</a> construído durante o evento <a href="http://www.sucesurs.org.br/evento/guday-2014">GuDay</a> promovido pela <a href="http://www.sucesurs.org.br">Sucesu-RS</a>.<br>
-                Utiliza dados de fontes abertas de Prefeitura Municial de Porto Alegre distribuidos pelo portal <a href="http://datapoa.com.br">datapoa</a>.<br>
-                Construido e mantido com todo o amor do mundo por <a href="https://github.com/umovers/voudebike/contributors">este time</a>.
-            </div>
-        </footer>
-    </body>
+		<section id="content" class="row">
+			<%- body %>
+		</section>
+
+		<footer class="row">
+			<div class="social-links col-md-12">
+				<%- partial('_fblike') %>
+				<%- partial('_gPlusButton') %>
+				<%- partial('_twitter') %>
+				<%- partial('_ghwatch') %>
+			</div>
+			<div class="col-md-12 credits">
+				Projeto de <a href="http://github.com/umovers/voudebike">código aberto</a> construído durante o evento <a href="http://www.sucesurs.org.br/evento/guday-2014">GuDay</a> promovido pela <a href="http://www.sucesurs.org.br">Sucesu-RS</a>.<br>
+				Utiliza dados de fontes abertas de Prefeitura Municial de Porto Alegre distribuidos pelo portal <a href="http://datapoa.com.br">datapoa</a>.<br>
+				Construido e mantido com todo o amor do mundo por <a href="https://github.com/umovers/voudebike/contributors">este time</a>.
+			</div>
+		</footer>
+	</body>
 </html>
