@@ -12,3 +12,13 @@ $$
 	LIMIT	1;
 $$
 LANGUAGE sql;
+
+
+CREATE OR REPLACE FUNCTION nearest_bikestation_json(origin POINT)
+RETURNS JSON
+AS
+$$
+	SELECT	row_to_json(a.*)
+	FROM	nearest_bikestation(origin) AS a;
+$$
+LANGUAGE sql;
