@@ -1,9 +1,9 @@
-var newrelic = require('newrelic'),
-	express = require('express'),
-	config = require('./config'),
-	engine = require('ejs'),
-	partials = require('express-partials'),
-	app = express();
+var	newrelic 	= require('newrelic'),
+	express 	= require('express'),
+	engine 		= require('ejs'),
+	partials 	= require('express-partials'),
+	config 		= require('./config'),
+	app 		= express();
 
 app.engine('html', engine.renderFile);
 app.set('views', __dirname + '/views');
@@ -13,8 +13,8 @@ app.use(partials());
 partials.register('.html', 'ejs');
 
 // controllers
-var indexController = require('./controllers/index'),
-	bikeRackController = require('./controllers/bikeRack');
+var	indexController 	= require('./controllers/index'),
+	bikeRackController 	= require('./controllers/bikeRack');
 
 app.get('/', indexController.index);
 app.get('/nearestStation', bikeRackController.nearestStation);

@@ -1,41 +1,14 @@
-var pg = require('pg'),
-	config = require('../config'),
-	url = require('url');
-
-function getNearestPosition(latlng, callback) {
-	var db = new pg.Client(config.DATABASE_URL);
-
-	db.connect(function(err) {
-		if (err) {
-			console.error('error running query', err);
-			return;
-		}
-
-		db.query('SELECT * FROM nearest_bikestation(point($1::text))', [latlng], function(err, result) {
-			db.end();
-
-			if (err) {
-				console.error('error running query', err);
-				return;
-			}
-
-			callback({
-				name: result.rows[0]['name'],
-				lat: result.rows[0]['latitude'],
-				lng: result.rows[0]['longitude']
-			});
-		});
-	});
-}
+var 	url 		= require('url'),
+	BikeRack 	= require('../model/bikeRack');
 
 var BikeRackController = function() {
 	this.nearestStation = function(req, res) {
-		var queryString = url.parse(req.url, true);
-		var start = queryString.query.startPosition;
-		var end = queryString.query.endPosition;
+		var 	queryString 	= url.parse(req.url, true),
+			start 		= queryString.query.startPosition,
+			end 		= queryString.query.endPosition;
 
-		getNearestPosition(start, function(startStation) {
-			getNearestPosition(end, function(endStation) {
+		BikeRack.getNearestStation(start, function(startStation) {
+			BikeRack.getNearestStation(end, function(endStation) {
 				res.setHeader("Content-Type", "text/json");
 				res.end(JSON.stringify({
 					start: startStation,

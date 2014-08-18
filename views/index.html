@@ -13,9 +13,9 @@
 
 <script>
 	var BIKE_RACKS = [
-		<% for(var i=0; i<text.rows.length; i++) {%>
+		<% for(var i = 0; i < racks.rows.length; i++) {%>
 			<% if(i>0) {%>,<% } %>
-				{lat: '<%= text.rows[i]['latitude'] %>', lng: '<%= text.rows[i]['longitude']%>', name:'<%= text.rows[i]['nome']%>'}
+				{lat: '<%= racks.rows[i]['latitude'] %>', lng: '<%= racks.rows[i]['longitude']%>', name:'<%= racks.rows[i]['nome']%>'}
 		<% } %>
 	]
 </script>
