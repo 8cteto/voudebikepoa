@@ -18,7 +18,9 @@
     "pg": "3.x",
     "logfmt": "1.x",
     "ejs": "1.x",
-    "newrelic": "1.x",
+    "newrelic": "1.x"
+  },
+  "devDependencies": {
     "jasmine-node": "1.x"
   },
   "license": "MIT",
