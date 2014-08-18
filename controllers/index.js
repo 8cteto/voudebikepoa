@@ -26,9 +26,6 @@ var IndexController = function() {
 		});
 	};
 
-	this.go = function(req, res) {
-		res.render('go.html');
-	};
 };
 
 module.exports = new IndexController();

@@ -18,7 +18,6 @@ var indexController = require('./controllers/index'),
 
 app.get('/', indexController.index);
 app.get('/nearestStation', bikeRackController.nearestStation);
-app.get('/go', indexController.go);
 
 app.listen(config.WEBAPP_PORT);
 
