@@ -120,15 +120,23 @@ $(function() {
 		focusMap();
 	}
 
-	function markPoint(latitude,longitude, nameMarker) {
-		var nameMarker = nameMarker.replace(new RegExp('_', 'g'),' ');
-		var newMarker = new google.maps.LatLng(latitude, longitude);
-		new google.maps.Marker({
-			title: nameMarker,
-			position: newMarker,
+	function markPoint(latitude, longitude, markerName) {
+		var markerName = markerName.replace(new RegExp('_', 'g'),' ');
+		var position = new google.maps.LatLng(latitude, longitude);
+		var marker = new google.maps.Marker({
+			title: markerName,
+			position: position,
 			map: map,
 			icon:"/images/icone-estacoes.gif",
 		}); 
+
+		var infowindow = new google.maps.InfoWindow({
+      			content: markerName
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+	    		infowindow.open(map, marker);
+		});
 	}
 
 	function focusMap() {
