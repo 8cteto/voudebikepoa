@@ -10,12 +10,3 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="/js/application.js"></script>
-
-<script>
-	var BIKE_RACKS = [
-		<% for(var i = 0; i < racks.rows.length; i++) {%>
-			<% if(i>0) {%>,<% } %>
-				{lat: '<%= racks.rows[i]['latitude'] %>', lng: '<%= racks.rows[i]['longitude']%>', name:'<%= racks.rows[i]['nome']%>'}
-		<% } %>
-	]
-</script>

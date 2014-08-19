@@ -17,6 +17,7 @@ var	indexController 	= require('./controllers/indexController'),
 	bikeRackController 	= require('./controllers/bikeRackController');
 
 app.get('/', indexController.index);
+app.get('/bikeRack/all', bikeRackController.listAll);
 app.get('/nearestStation', bikeRackController.nearestStation);
 
 app.listen(config.WEBAPP_PORT);

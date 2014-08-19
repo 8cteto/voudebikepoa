@@ -2,6 +2,14 @@ var 	url 		= require('url'),
 	BikeRack 	= require('../model/bikeRack');
 
 var BikeRackController = function() {
+
+	this.listAll = function(req, res) {
+		BikeRack.findAll(function(result) {
+			res.setHeader("Content-Type", "text/json");
+			res.end(JSON.stringify(result.rows));
+		});
+	};
+
 	this.nearestStation = function(req, res) {
 		var 	queryString 	= url.parse(req.url, true),
 			start 		= queryString.query.startPosition,
