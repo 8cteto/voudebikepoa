@@ -168,8 +168,8 @@ $(function() {
 	});
 
 	function resolveNearestAddresses(startPosition, endPosition) {
-		$.get('/nearestStation?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
-			console.log('Building route', data);
+		$.get('/bikeRack/nearestBikeRack?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
+			//console.log('Building route', data);
 			createRoute(joinPosition(data.start.lat, data.start.lng), joinPosition(data.end.lat, data.end.lng))
 		});
 	}

@@ -10,7 +10,7 @@ var BikeRackController = function() {
 		});
 	};
 
-	this.nearestStation = function(req, res) {
+	this.nearestBikeRack = function(req, res) {
 		var 	queryString 	= url.parse(req.url, true),
 			start 		= queryString.query.startPosition,
 			end 		= queryString.query.endPosition;
