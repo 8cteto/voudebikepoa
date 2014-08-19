@@ -13,8 +13,8 @@ app.use(partials());
 partials.register('.html', 'ejs');
 
 // controllers
-var	indexController 	= require('./controllers/index'),
-	bikeRackController 	= require('./controllers/bikeRack');
+var	indexController 	= require('./controllers/indexController'),
+	bikeRackController 	= require('./controllers/bikeRackController');
 
 app.get('/', indexController.index);
 app.get('/nearestStation', bikeRackController.nearestStation);
