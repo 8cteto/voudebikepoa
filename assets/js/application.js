@@ -6,8 +6,13 @@ $(function() {
 		directionsDisplay,
 		map,
 		directionsService = new google.maps.DirectionsService(),
-		geocoder = new google.maps.Geocoder();
-        var infowindow;
+		geocoder = new google.maps.Geocoder(),
+        infowindow,
+        targetToClear =  $("#searchclear");
+
+    targetToClear.click(function(){
+        targetTo.val('');
+    });
 
 	$().add(targetFrom).add(targetTo).on('change', function(e) {
 		$(this).attr('data-pos', '');
