@@ -7,6 +7,7 @@ $(function() {
 		map,
 		directionsService = new google.maps.DirectionsService(),
 		geocoder = new google.maps.Geocoder();
+        var infowindow;
 
 	$().add(targetFrom).add(targetTo).on('change', function(e) {
 		$(this).attr('data-pos', '');
@@ -130,11 +131,13 @@ $(function() {
 			icon:"/images/icone-estacoes.gif",
 		}); 
 
-		var infowindow = new google.maps.InfoWindow({
-      			content: markerName
-		});
+	
 
 		google.maps.event.addListener(marker, 'click', function() {
+                if (infowindow) infowindow.close();
+                infowindow = new google.maps.InfoWindow({
+                    content: markerName
+                });
 	    		infowindow.open(map, marker);
 		});
 	}
