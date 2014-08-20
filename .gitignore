@@ -2,3 +2,4 @@ node_modules
 logfile
 .DS_Store
 *.log
+.elasticbeanstalk/
