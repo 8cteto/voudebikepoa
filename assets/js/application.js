@@ -73,7 +73,7 @@ $(function() {
 		self.initialize();
 	};
 
-	var Geocoder = function() {
+	var GeocodeController = function() {
 		var 	self = this,
 			geocoder = new google.maps.Geocoder();
 
@@ -109,7 +109,7 @@ $(function() {
 		targetToClear =  $("#searchclear"),
 		mapContainer = $('#map-canvas');
 		mapController = undefined
-		geocoder = new Geocoder();
+		geocodeController = new GeocodeController();
 
 	function initialize() {
 		mapController = new MapController(mapContainer[0]);
@@ -130,7 +130,7 @@ $(function() {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				mapController.setCurrentPosition(position.coords.latitude, position.coords.longitude);
 
-				geocoder.findAddresByGeoLocation(position.coords.latitude, position.coords.longitude, function(result) {
+				geocodeController.findAddresByGeoLocation(position.coords.latitude, position.coords.longitude, function(result) {
 					targetFrom.val(result).attr('data-pos', joinPosition(position.coords.latitude, position.coords.longitude));
 					inputForm.trigger('address-resolved');
 				});
@@ -158,7 +158,7 @@ $(function() {
 
 	function verifyAddress(targetElement) {
 		var address = targetElement.val() + ', Porto Alegre, RS, Brasil';
-		geocoder.findGeoLocationByAddress(address, function(result) {
+		geocodeController.findGeoLocationByAddress(address, function(result) {
 			var position = joinPosition(result.lat, result.lng);
 			targetElement.val(result.formatted_address).attr('data-pos', position);
 			inputForm.trigger('address-resolved');
