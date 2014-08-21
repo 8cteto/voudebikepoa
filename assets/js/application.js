@@ -186,11 +186,15 @@ $(function() {
 	inputForm.on('submit', function(e) {
 		e.preventDefault();
 
-		if (!hasAddress(targetFrom))
+		if (!hasAddress(targetFrom)) {
 			alert('Informe o local de origem!');
+			return;
+		}
 
-		if (!hasAddress(targetTo))
+		if (!hasAddress(targetTo)) {
 			alert('Informe o local de destino!');
+			return;
+		}
 
 		if (!addressAlreadyResolved(targetFrom))
 			verifyAddress(targetFrom);
