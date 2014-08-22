@@ -1,4 +1,7 @@
-﻿BEGIN;
+BEGIN;
+
+DROP ROLE IF EXISTS voudebike_admin;
+CREATE ROLE voudebike_admin NOLOGIN;
 
 CREATE TABLE ciclovias_implantadas (
     id SERIAL PRIMARY KEY,
