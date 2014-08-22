@@ -3,24 +3,28 @@ $(function() {
 	var MapController = function(mapContainer) {
 		var self = this
 
+		// porto alegre
+		self.initialAddress = new google.maps.LatLng(-30.0359, -51.2048);
+		self.defaultMapZoom = 12;
+
 		self.directionsService = new google.maps.DirectionsService();
-		self.directionsDisplay = new google.maps.DirectionsRenderer();
 		self.geocoder = new google.maps.Geocoder(),
+		self.directionsDisplay = new google.maps.DirectionsRenderer({
+			suppressMarkers: true
+		});
 		self.bikeRacks = [];
 
 		this.initialize = function() {
 			var isDraggable = $(document).width() > 480;
-			var portoAlegre = new google.maps.LatLng(-30.0159,-51.1348);
 
 			var mapOptions = {
-				zoom:12,
-				center: portoAlegre,
+				zoom: self.defaultMapZoom,
+				center: self.initialAddress,
 				scrollwheel:false,
 				draggable:isDraggable
 			};
 
 			self.map = new google.maps.Map(mapContainer, mapOptions);
-			self.directionsDisplay.setMap(self.map);
 		};
 
 		this.setCurrentPosition = function(lat, lng) {
@@ -28,19 +32,22 @@ $(function() {
 		};
 
 		this.addBikeRack = function(name, lat, lng) {
-			var marker = self.createMarker(name, lat, lng, '/images/icone-estacoes.gif');
+			var marker = self.createMarker(name, lat, lng, {icon : '/images/icone-estacoes.gif'});
 			self.bikeRacks.push(marker);
 		};
 
-		this.createMarker = function(name, lat, lng, icon) {
+		this.createMarker = function(name, lat, lng, opts) {
 			var position = new google.maps.LatLng(lat, lng);
 
-			var marker = new google.maps.Marker({
+			var options = {
 				title: name,
 				position: position,
-				map: self.map,
-				icon: icon
-			});
+				map: self.map
+			};
+
+			$.extend(options, opts || {});
+
+			var marker = new google.maps.Marker(options);
 
 			google.maps.event.addListener(marker, 'click', function() {
 				if (self.currentInfoWindow) 
@@ -54,20 +61,56 @@ $(function() {
 			});
 
 			return marker;
+		};
+
+		this.reset = function() {
+			self.directionsDisplay.setMap(null);
+			self.displayAllBikeRacks();
+			self.map.setZoom(self.defaultMapZoom);
+			self.map.panTo(self.initialAddress);
 		}
 
-		this.setRoute = function(startPoint, endPoint) {
+		this.setRoute = function(startPosition, endPosition) {
 			var request = {
-				origin: startPoint,
-				destination: endPoint,
+				origin: startPosition.join(','),
+				destination: endPosition.join(','),
 				travelMode: google.maps.TravelMode.WALKING
 			};
 
 			self.directionsService.route(request, function(response, status) {
 				if (status == google.maps.DirectionsStatus.OK) {
 					self.directionsDisplay.setDirections(response);
+					self.directionsDisplay.setMap(self.map);
 				}
+
+				self.hideBikeRacksOutOfRoute(startPosition, endPosition);
 			});
+		};
+
+		this.displayAllBikeRacks = function() {
+			for (var index in self.bikeRacks) {
+				self.bikeRacks[index].setMap(self.map);
+			}
+		};
+
+		this.hideBikeRacksOutOfRoute = function(startPosition, endPosition) {
+			for (var index in self.bikeRacks) {
+				var bikeRack = self.bikeRacks[index];
+
+				if (self.isSameCoordinate(bikeRack.getPosition().lat(), startPosition[0]) && self.isSameCoordinate(bikeRack.getPosition().lng(), startPosition[1])) {
+					continue;
+				}
+
+				if (self.isSameCoordinate(bikeRack.getPosition().lat(), endPosition[0]) && self.isSameCoordinate(bikeRack.getPosition().lng(), endPosition[1])) {
+					continue;
+				}
+
+				self.bikeRacks[index].setMap(null);
+			}
+		};
+
+		this.isSameCoordinate = function(cord1, cord2) {
+			return String(cord1).substring(0, 10) == String(cord2).substring(0, 10)
 		};
 
 		self.initialize();
@@ -106,7 +149,6 @@ $(function() {
 		targetFrom = $('#targetFrom'),
 		targetTo = $('#targetTo'),
 		inputForm = $('#map-input-form'),
-		targetToClear =  $("#searchclear"),
 		mapContainer = $('#map-canvas');
 		mapController = undefined
 		geocodeController = new GeocodeController();
@@ -116,10 +158,6 @@ $(function() {
 		verifyCurrentLocation();
 		loadBikeRacks();
 	}
-
-	targetToClear.on('click', function(){
-		targetTo.val('');
-	});
 
 	$().add(targetFrom).add(targetTo).on('change', function(e) {
 		$(this).attr('data-pos', '');
@@ -207,12 +245,16 @@ $(function() {
 			return;
 
 		resolveNearestAddresses(targetFrom.attr('data-pos'), targetTo.attr('data-pos'));
+	}).on('reset', function(e) {
+		e.preventDefault();
+		mapController.reset();
+		targetTo.val('').attr('data-pos', '');
 	});
 
 	function resolveNearestAddresses(startPosition, endPosition) {
 		$.get('/bikeRack/nearestBikeRack?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
 			//console.log('Building route', data);
-			mapController.setRoute(joinPosition(data.start.lat, data.start.lng), joinPosition(data.end.lat, data.end.lng))
+			mapController.setRoute([data.start.lat, data.start.lng], [data.end.lat, data.end.lng])
 		});
 	}
 
