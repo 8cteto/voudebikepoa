@@ -24,18 +24,17 @@ Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBik
 
 
 ## Running
-* Install [Node.js](http://nodejs.org/)
-* Install [PostgreSQL](http://www.postgresql.org/) locally
-* Restore database backup (see below)
-* Run `npm install` to install dependencies listed in package.json
-* Run `node index.js` to run the app
-* Run `npm test` to run tests
+* Instale o [Node.js](http://nodejs.org/)
+* Instale o [PostgreSQL](http://www.postgresql.org/)
+* Execute os passos para configurar o banco (veja abaixo)
+* Execute `npm install` para instalar as dependencias listadas no package.json
+* Execute `node index.js` para executar este aplicativo
+* Execute `npm test` para executar os testes.
 
 ### Para configurar o banco
-* Acesse o diretório do projeto;
-* Conecte no banco de dados através do `psql`, como o banco **voudebike será apagado**, é necessário conectar em qualquer outro banco (em caso de dúvida, utilize o banco `postgres`);
+* Acesse o diretório do projeto
+* Conecte no banco de dados através do `psql`, como o banco **voudebike será apagado**, é necessário conectar em qualquer outro banco (em caso de dúvida, utilize o banco `postgres`)
 * Execute o script resources/setup_db.sql` através do comando abaixo:
-
 
 ```
 \i resources/setup_db.sql
