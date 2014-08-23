@@ -14,10 +14,14 @@ Temos ainda a possibilidade de sugerir pontos turísticos e culturais na rota do
 Poderemos tentar facilitar também passeios de bike com sua própria bicicleta, permitindo utilizar os recursos de rota segura ou rápida entre pontos de partida e destino.
 
 Dataset que utilizaremos (se implementadas todas as funcionalidades):
+
 * http://datapoa.com.br/dataset/bikepoa
 * http://datapoa.com.br/dataset/ciclovias-implantadas
 * http://datapoa.com.br/dataset/espacos-culturais
 * http://datapoa.com.br/dataset/acidentes-de-transito
+
+Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBikePOA)!
+
 
 ## Running
 * Install [Node.js](http://nodejs.org/)
@@ -28,17 +32,16 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 * Run `npm test` to run tests
 
 ### Para configurar o banco
-* acesse o diretório do projeto
-* conecte no banco de dados através do psql
-* execute o script `resources/setup_db.sql` através do comando abaixo:
-> Atenção! o banco `voudebike` será apagado no processo!!!
+* Acesse o diretório do projeto;
+* Conecte no banco de dados através do `psql`, como o banco **voudebike será apagado**, é necessário conectar em qualquer outro banco (em caso de dúvida, utilize o banco `postgres`);
+* Execute o script resources/setup_db.sql` através do comando abaixo:
+
 
 ```
 \i resources/setup_db.sql
 ```
-
 ## Resources
-[Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
+* [Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
 
 
 ## License
