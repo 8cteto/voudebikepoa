@@ -1,6 +1,6 @@
 begin;
 
-create extension unnacent;
+create extension unaccent;
 
 alter table estacoes_bikepoa
 	add status_online char(1),
@@ -21,3 +21,5 @@ create table bikepoa_mapaestacao (
 	num_bicicletas integer,
 	endereco varchar
 );
+
+COMMIT;
