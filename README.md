@@ -27,10 +27,15 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 * Run `node index.js` to run the app
 * Run `npm test` to run tests
 
-### To setup database
-* create a database called 'voudebike'
-* run the database script stored in 'resources/db.sql' psql or pgadmin III
-* run vacuum `vacuumdb -U postgres -d voudebike -z`
+### Para configurar o banco
+* acesse o diretório do projeto
+* conecte no banco de dados através do psql
+* execute o script `resources/setup_db.sql` através do comando abaixo:
+> Atenção! o banco `voudebike` será apagado no processo!!!
+
+```
+\i resources/setup_db.sql
+```
 
 ## Resources
 [Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
