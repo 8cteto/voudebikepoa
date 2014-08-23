@@ -1,6 +1,6 @@
 begin;
 
-create extension unaccent;
+CREATE EXTENSION IF NOT EXISTS unaccent;
 
 alter table estacoes_bikepoa
 	add status_online char(1),
