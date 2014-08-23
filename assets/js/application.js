@@ -83,7 +83,7 @@ $(function() {
 					self.directionsDisplay.setMap(self.map);
 				}
 
-				self.hideBikeRacksOutOfRoute(startPosition, endPosition);
+				//self.hideBikeRacksOutOfRoute(startPosition, endPosition);
 			});
 		};
 
