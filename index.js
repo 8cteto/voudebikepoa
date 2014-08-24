@@ -1,8 +1,9 @@
 var	newrelic 	= require('newrelic'),
 	express 	= require('express'),
-	engine 		= require('ejs'),
+	engine 	= require('ejs'),
 	partials 	= require('express-partials'),
 	config 		= require('./config'),
+	configHelpers	= require('./helpers/configHelpers'),
 	app 		= express();
 
 app.engine('html', engine.renderFile);
@@ -10,6 +11,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.use(express.static(__dirname + '/assets'));
 app.use(partials());
+app.locals(configHelpers);
 partials.register('.html', 'ejs');
 
 // controllers
