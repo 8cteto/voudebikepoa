@@ -14,6 +14,8 @@ $(function() {
 			suppressMarkers: true
 		});
 		self.bikeRacks = [];
+		self.currentPosition = undefined;
+		self.destinationPosition = undefined;
 
 		this.initialize = function() {
 			var isDraggable = $(document).width() > 480;
@@ -29,12 +31,30 @@ $(function() {
 		};
 
 		this.setCurrentPosition = function(lat, lng) {
-			self.createMarker('Meu Local', lat, lng);
+			self.clearCurrentPosition();
+			self.currentPosition = self.createMarker('Meu Local', lat, lng);
 		};
 
 		this.setDestinationPosition = function(lat, lng, text) {
-			self.createMarker('Destino', lat, lng, {}, text);
-		}
+			self.clearDestinationPosition();
+			self.destinationPosition = self.createMarker('Destino', lat, lng, {}, text);
+		};
+
+		this.clearCurrentPosition = function() {
+			if (!self.currentPosition) 
+				return;
+
+			self.currentPosition.setMap(null);
+			self.currentPosition = undefined;
+		};
+
+		this.clearDestinationPosition = function() {
+			if (!self.destinationPosition) 
+				return;
+
+			self.destinationPosition.setMap(null);
+			self.destinationPosition = undefined;
+		};
 
 		this.addBikeRack = function(name, lat, lng) {
 			var marker = self.createMarker(name, lat, lng, {icon : '/images/icone-estacoes.gif'});
@@ -76,6 +96,7 @@ $(function() {
 		this.reset = function() {
 			self.directionsDisplay.setMap(null);
 			self.displayAllBikeRacks();
+			self.clearDestinationPosition();
 			self.map.setZoom(self.defaultMapZoom);
 			self.map.panTo(self.initialAddress);
 		}
