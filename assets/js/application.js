@@ -8,6 +8,7 @@ $(function() {
 		self.defaultMapZoom = 12;
 
 		self.directionsService = new google.maps.DirectionsService();
+		self.geometryService = google.maps.geometry.spherical;
 		self.geocoder = new google.maps.Geocoder(),
 		self.directionsDisplay = new google.maps.DirectionsRenderer({
 			suppressMarkers: true
@@ -83,7 +84,7 @@ $(function() {
 					self.directionsDisplay.setMap(self.map);
 				}
 
-				//self.hideBikeRacksOutOfRoute(startPosition, endPosition);
+				self.hideBikeRacksOutOfRoute(startPosition, endPosition);
 			});
 		};
 
@@ -95,22 +96,25 @@ $(function() {
 
 		this.hideBikeRacksOutOfRoute = function(startPosition, endPosition) {
 			for (var index in self.bikeRacks) {
-				var bikeRack = self.bikeRacks[index];
+				var bikeRackLatLng = self.bikeRacks[index].getPosition();
+				var startLatLng = new google.maps.LatLng(startPosition[0], startPosition[1]);
+				var endLatLng = new google.maps.LatLng(endPosition[0], endPosition[1]);
 
-				if (self.isSameCoordinate(bikeRack.getPosition().lat(), startPosition[0]) && self.isSameCoordinate(bikeRack.getPosition().lng(), startPosition[1])) {
+				if (self.isSameCoordinate(bikeRackLatLng, startLatLng) || self.isSameCoordinate(bikeRackLatLng, endLatLng)) 
 					continue;
-				}
-
-				if (self.isSameCoordinate(bikeRack.getPosition().lat(), endPosition[0]) && self.isSameCoordinate(bikeRack.getPosition().lng(), endPosition[1])) {
-					continue;
-				}
 
 				self.bikeRacks[index].setMap(null);
 			}
 		};
 
-		this.isSameCoordinate = function(cord1, cord2) {
-			return String(cord1).substring(0, 10) == String(cord2).substring(0, 10)
+		this.isSameCoordinate = function(positionOne, positionTwo) {
+			var distance = self.geometryService.computeDistanceBetween(positionOne, positionTwo);
+			return distance <= 5;
+		};
+
+		this.roundCoordinate = function(coordinate) {
+			console.log(Math.round(coordinate * 1000000));
+			return Math.round(coordinate * 1000000) / 1000000;
 		};
 
 		self.initialize();
@@ -208,7 +212,7 @@ $(function() {
 	}
 
 	function focusMap() {
-		$(window).scrollTop(map-container.offset().top);
+		$(window).scrollTop(mapContainer.offset().top);
 	}
 
 	function hasAddress(target) {
@@ -255,6 +259,7 @@ $(function() {
 		$.get('/bikeRack/nearestBikeRack?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
 			//console.log('Building route', data);
 			mapController.setRoute([data.start.lat, data.start.lng], [data.end.lat, data.end.lng])
+			focusMap();
 		});
 	}
 
