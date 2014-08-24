@@ -32,13 +32,22 @@ $(function() {
 			self.createMarker('Meu Local', lat, lng);
 		};
 
+		this.setDestinationPosition = function(lat, lng, text) {
+			self.createMarker('Destino', lat, lng, {}, text);
+		}
+
 		this.addBikeRack = function(name, lat, lng) {
 			var marker = self.createMarker(name, lat, lng, {icon : '/images/icone-estacoes.gif'});
 			self.bikeRacks.push(marker);
 		};
 
-		this.createMarker = function(name, lat, lng, opts) {
+		this.createMarker = function(name, lat, lng, opts, info) {
 			var position = new google.maps.LatLng(lat, lng);
+
+			var infoContent = name;
+			if (info) {
+				infoContent += '<br/>' + info;
+			}
 
 			var options = {
 				title: name,
@@ -55,7 +64,7 @@ $(function() {
 					self.currentInfoWindow.close();
 
 				self.currentInfoWindow = new google.maps.InfoWindow({
-					content: name
+					content: infoContent
 				});
 
 				self.currentInfoWindow.open(self.map, marker);
@@ -248,16 +257,20 @@ $(function() {
 		if (!hasAddress(targetFrom) || !hasAddress(targetTo) || !addressAlreadyResolved(targetFrom) || !addressAlreadyResolved(targetTo))
 			return;
 
-		resolveNearestAddresses(targetFrom.attr('data-pos'), targetTo.attr('data-pos'));
+		applyRouteOnMap();
 	}).on('reset', function(e) {
 		e.preventDefault();
 		mapController.reset();
 		targetTo.val('').attr('data-pos', '');
 	});
 
-	function resolveNearestAddresses(startPosition, endPosition) {
+	function applyRouteOnMap() {
+		var 	startPosition = targetFrom.attr('data-pos'),
+			endPosition = targetTo.attr('data-pos');
+
 		$.get('/bikeRack/nearestBikeRack?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
-			//console.log('Building route', data);
+			var destination = splitPosition(endPosition);
+			mapController.setDestinationPosition(destination[0], destination[1], targetTo.val());
 			mapController.setRoute([data.start.lat, data.start.lng], [data.end.lat, data.end.lng])
 			focusMap();
 		});
