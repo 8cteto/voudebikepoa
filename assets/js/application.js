@@ -32,12 +32,12 @@ $(function() {
 
 		this.setCurrentPosition = function(lat, lng) {
 			self.clearCurrentPosition();
-			self.currentPosition = self.createMarker('Meu Local', lat, lng);
+			self.currentPosition = self.createMarker('Você está aqui', lat, lng);
 		};
 
 		this.setDestinationPosition = function(lat, lng, text) {
 			self.clearDestinationPosition();
-			self.destinationPosition = self.createMarker('Destino', lat, lng, {}, text);
+			self.destinationPosition = self.createMarker('Você quer chegar aqui', lat, lng, {}, text);
 		};
 
 		this.clearCurrentPosition = function() {
@@ -101,12 +101,21 @@ $(function() {
 			self.map.panTo(self.initialAddress);
 		}
 
-		this.setRoute = function(startPosition, endPosition) {
+		this.setRoute = function(routePoints) {
+			var 	startPosition = self.createPosition(routePoints.shift()),
+				endPosition = self.createPosition(routePoints.pop());
+
+			var routePositions = self.createPositions(routePoints);
+			var wayPoints = self.createWayPoints(routePositions);
+
 			var request = {
-				origin: startPosition.join(','),
-				destination: endPosition.join(','),
+				origin: startPosition,
+				destination: endPosition,
+				waypoints: wayPoints,
 				travelMode: google.maps.TravelMode.WALKING
 			};
+
+			self.displayAllBikeRacks();
 
 			self.directionsService.route(request, function(response, status) {
 				if (status == google.maps.DirectionsStatus.OK) {
@@ -114,8 +123,25 @@ $(function() {
 					self.directionsDisplay.setMap(self.map);
 				}
 
-				self.hideBikeRacksOutOfRoute(startPosition, endPosition);
+				self.hideBikeRacksOutOfRoute(routePositions);
 			});
+		};
+
+		this.createWayPoints = function(positions) {
+			return positions.map(function(position) {
+				return  {
+					location: position,
+					stopover: true
+				};
+			});
+		};
+
+		this.createPositions = function(positions) {
+			return positions.map(self.createPosition);
+		};
+
+		this.createPosition = function(position) {
+			return new google.maps.LatLng(position[0], position[1]);
 		};
 
 		this.displayAllBikeRacks = function() {
@@ -124,22 +150,23 @@ $(function() {
 			}
 		};
 
-		this.hideBikeRacksOutOfRoute = function(startPosition, endPosition) {
-			for (var index in self.bikeRacks) {
-				var bikeRackLatLng = self.bikeRacks[index].getPosition();
-				var startLatLng = new google.maps.LatLng(startPosition[0], startPosition[1]);
-				var endLatLng = new google.maps.LatLng(endPosition[0], endPosition[1]);
+		this.hideBikeRacksOutOfRoute = function(routePoints) {
+			var racksOutOfRoute = self.bikeRacks.filter(function(bikeRack) {
+				var positionsPassingInThisRack = routePoints.filter(function(routePoint) {
+					return self.isSameCoordinate(bikeRack.getPosition(), routePoint); 
+				});
 
-				if (self.isSameCoordinate(bikeRackLatLng, startLatLng) || self.isSameCoordinate(bikeRackLatLng, endLatLng)) 
-					continue;
+				return positionsPassingInThisRack.length == 0;
+			});
 
-				self.bikeRacks[index].setMap(null);
-			}
+			$.each(racksOutOfRoute, function(i, rack) {
+				rack.setMap(null);
+			});
 		};
 
 		this.isSameCoordinate = function(positionOne, positionTwo) {
 			var distance = self.geometryService.computeDistanceBetween(positionOne, positionTwo);
-			return distance <= 5;
+			return distance <= 10;
 		};
 
 		this.roundCoordinate = function(coordinate) {
@@ -292,7 +319,14 @@ $(function() {
 		$.get('/bikeRack/nearestBikeRack?startPosition=' + startPosition + '&endPosition=' + endPosition, function(data) {
 			var destination = splitPosition(endPosition);
 			mapController.setDestinationPosition(destination[0], destination[1], targetTo.val());
-			mapController.setRoute([data.start.lat, data.start.lng], [data.end.lat, data.end.lng])
+
+			mapController.setRoute([
+				splitPosition(targetFrom.attr('data-pos')),
+				[data.start.lat, data.start.lng], 
+				[data.end.lat, data.end.lng],
+				splitPosition(targetTo.attr('data-pos'))
+			]);
+
 			focusMap();
 		});
 	}
