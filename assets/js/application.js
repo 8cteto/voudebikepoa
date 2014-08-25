@@ -54,7 +54,7 @@ $(function() {
 		};
 
 		this.addBikeRack = function(name, lat, lng) {
-			var marker = self.createMarker(name, lat, lng, {icon : '/images/icone-estacoes.gif'});
+			var marker = self.createMarker(name, lat, lng, {icon : '/images/bikeRackOnline.png'});
 			self.bikeRacks.push(marker);
 		};
 
