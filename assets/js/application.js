@@ -23,8 +23,7 @@ $(function() {
 			var mapOptions = {
 				zoom: self.defaultMapZoom,
 				center: self.initialAddress,
-				scrollwheel:false,
-				draggable:isDraggable
+				scrollwheel:false
 			};
 
 			self.map = new google.maps.Map(mapContainer, mapOptions);
@@ -32,12 +31,12 @@ $(function() {
 
 		this.setCurrentPosition = function(lat, lng) {
 			self.clearCurrentPosition();
-			self.currentPosition = self.createMarker('Você está aqui', lat, lng);
+			self.currentPosition = self.createMarker('Você está aqui', lat, lng, {icon: '/images/currentLocation.png'});
 		};
 
 		this.setDestinationPosition = function(lat, lng, text) {
 			self.clearDestinationPosition();
-			self.destinationPosition = self.createMarker('Você quer chegar aqui', lat, lng, {}, text);
+			self.destinationPosition = self.createMarker('Você quer chegar aqui', lat, lng, {icon: '/images/targetLocation.png'}, text);
 		};
 
 		this.clearCurrentPosition = function() {
