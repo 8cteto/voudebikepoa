@@ -23,7 +23,7 @@ Dataset que utilizaremos (se implementadas todas as funcionalidades):
 Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBikePOA)!
 
 
-## Running
+## Rodando localmente
 * Instale o [Node.js](http://nodejs.org/)
 * Instale o [PostgreSQL](http://www.postgresql.org/)
 * Execute os passos para configurar o banco (veja abaixo)
@@ -39,11 +39,8 @@ Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBik
 ```
 \i resources/setup_db.psql
 ```
-## Resources
-* [Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
 
-
-## License
+## Licença
 (The MIT License)
 
 Copyright (C) 2014 VouDeBike Development Team
