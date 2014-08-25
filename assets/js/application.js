@@ -96,7 +96,7 @@ $(function() {
 			self.clearDestinationPosition();
 			self.map.setZoom(self.defaultMapZoom);
 			self.map.panTo(self.initialAddress);
-		}
+		};
 
 		this.setRoute = function(routePoints) {
 			var 	startPosition = self.createPosition(routePoints.shift()),
@@ -164,11 +164,6 @@ $(function() {
 		this.isSameCoordinate = function(positionOne, positionTwo) {
 			var distance = self.geometryService.computeDistanceBetween(positionOne, positionTwo);
 			return distance <= 10;
-		};
-
-		this.roundCoordinate = function(coordinate) {
-			console.log(Math.round(coordinate * 1000000));
-			return Math.round(coordinate * 1000000) / 1000000;
 		};
 
 		self.initialize();
