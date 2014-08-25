@@ -18,8 +18,6 @@ $(function() {
 		self.destinationPosition = undefined;
 
 		this.initialize = function() {
-			var isDraggable = $(document).width() > 480;
-
 			var mapOptions = {
 				zoom: self.defaultMapZoom,
 				center: self.initialAddress,
