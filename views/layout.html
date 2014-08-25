@@ -10,7 +10,7 @@
 		<meta name="robots" content="index, follow" />
 
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://voudebykepoa.com.br" />
+		<meta property="og:url" content="http://voudebikepoa.com.br" />
 		<meta property="og:title" content="Vou de bike POA" />
 		<meta property="og:image" content="http://voudebikepoa.com.br/images/logo1.png" />
 		<meta property="og:description" content="Escolha seu destino e diremos a você como ir de bike utilizando o BikePoa!"/>
@@ -43,9 +43,9 @@
 				<%- partial('social/github') %>
 			</div>
 			<div class="col-md-12 credits">
-				Projeto de <a href="http://github.com/umovers/voudebike">código aberto</a> construído durante o evento <a href="http://www.sucesurs.org.br/evento/guday-2014">GuDay</a> promovido pela <a href="http://www.sucesurs.org.br">Sucesu-RS</a>.<br>
+				Projeto de <a href="<%= getSourceCodeURL() %>">código aberto</a> construído durante o evento <a href="http://www.sucesurs.org.br/evento/guday-2014">GuDay</a> promovido pela <a href="http://www.sucesurs.org.br">Sucesu-RS</a>.<br>
 				Utiliza dados de fontes abertas de Prefeitura Municial de Porto Alegre distribuidos pelo portal <a href="http://datapoa.com.br">datapoa</a>.<br>
-				Construido e mantido com todo o amor do mundo por <a href="https://github.com/umovers/voudebike/contributors">este time</a>.
+				Construído e mantido com todo o amor do mundo por <a href="<%= getContributorsURL() %>">este time</a>.
 				Versão atual <%= getAppVersion() %>
 			</div>
 		</footer>
