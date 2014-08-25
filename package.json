@@ -1,7 +1,7 @@
 {
-  "name": "voudebike",
-  "version": "1.0.0",
-  "description": "Vou de bike",
+  "name": "voudebikepoa",
+  "version": "1.1.0",
+  "description": "Vou de Bike POA",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -10,7 +10,9 @@
   "keywords": [
     "bike",
     "guday",
-    "opendata"
+    "opendata",
+    "bikepoa",
+    "porto alegre"
   ],
   "dependencies": {
     "express": "3.x",
