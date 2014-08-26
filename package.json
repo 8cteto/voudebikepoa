@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/umovers/voudebike.git"
+    "url": "git://github.com/8cteto/voudebikepoa.git"
   },
   "keywords": [
     "bike",
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/umovers/voudebike/issues"
+    "url": "https://github.com/8cteto/voudebikepoa/issues"
   },
   "engines": {
     "node": "0.10.x"

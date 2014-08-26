@@ -6,10 +6,10 @@ module.exports = {
 	},
 
 	getSourceCodeURL: function() {
-		return 'https://github.com/umovers/voudebike';
+		return 'https://github.com/8cteto/voudebikepoa';
 	},
 
 	getContributorsURL: function() {
-		return 'https://github.com/umovers/voudebike/graphs/contributors';
+		return 'https://github.com/8cteto/voudebikepoa/graphs/contributors';
 	}
 };
