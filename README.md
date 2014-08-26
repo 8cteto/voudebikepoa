@@ -1,5 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/umovers/voudebike.png?branch=master)](http://travis-ci.org/umovers/voudebike)
-
+[![Build Status](https://secure.travis-ci.org/8cteto/voudebikepoa.png?branch=master)](http://travis-ci.org/8cteto/voudebikepoa)
 #Vou de Bike POA
 
 Um aplicativo que permite traçar rota entre um ponto de partida e destino utilizando as bicicletas do BikePoa.
