@@ -9,17 +9,11 @@ Nossa ideia é facilitar seu passeio, além de torná-lo mais seguro e divertido
 As principais funcionalidades que você encontrará aqui são:
  
  * A localização de todas as estações do Bike Poa (disponível na versão atual)
- 
  * Criação de rotas, incluindo a estação Bike Poa mais da sua localização atual e do seu local de destino (disponível na versão atual)
- 
  * Criação de rotas para quem possui bicicleta e não necessita das informações do Bike POA (disponível nas próximas versões)
- 
  * Criação de rotas seguras, incluindo as ciclovias e trajetos com menor incidência de acidentes de trânsito (disponível nas próximas versões)
- 
  * Criação de rotas incluindo espaços culturais de acordo com suas preferências (disponível nas próximas versões)
- 
  * Visualização da quantidade de bicicletas nas estações Bike POA (disponível nas próximas versões)
- 
  * Informações sobre o estado de funcionamento das bicicletas do Bike POA (disponível nas próximas versões)
 
 Vou de Bike POA é um projeto open source criado pela equipe 8cteto e utiliza dados de fontes abertas da Prefeitura Municipal de Porto Alegre distribuídos no portal datapoa. Nossa ideia nasceu durante o evento GUDay 2014 promovido pela Sucesu-RS.
