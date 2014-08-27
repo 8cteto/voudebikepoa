@@ -4,28 +4,27 @@
 
 Vou de Bike POA é uma ferramenta de apoio para todas as pessoas que utilizam a bicicleta como meio de transporte e que praticam o ciclismo como um estilo de vida contribuindo para a redução dos problemas de mobilidade urbana e para o meio ambiente, além de ser um hábito que contribui para a saúde dos praticantes do ciclismo.
  
-Nossa ideia é facilitar seu passeio, além de torná-lo mais seguro e divertido. Hoje nosso App atende a cidade de Porto Alegre e nossa ideia é atender também outras cidades do Brasil.
+Nossa ideia é facilitar seu passeio, além de torná-lo mais seguro e divertido. Hoje nossa App atende a cidade de Porto Alegre e nossa ideia é atender também outras cidades do Brasil.
 
 As principais funcionalidades que você encontrará aqui são:
  
- 	* A localização de todas as estações do Bike Poa (disponível na versão atual)
+ * A localização de todas as estações do Bike Poa (disponível na versão atual)
  
- 	* Criação de rotas, incluindo a estação Bike Poa mais da sua localização atual e do seu local de destino (disponível na versão atual)
+ * Criação de rotas, incluindo a estação Bike Poa mais da sua localização atual e do seu local de destino (disponível na versão atual)
  
- 	* Criação de rotas para quem possui bicicleta e não necessita das informações do Bike PoA (disponível nas próximas versões)
+ * Criação de rotas para quem possui bicicleta e não necessita das informações do Bike POA (disponível nas próximas versões)
  
- 	* Criação de rotas seguras, incluindo as ciclovias e trajetos com menor incidência de acidentes de trânsito (disponível nas próximas versões)
+ * Criação de rotas seguras, incluindo as ciclovias e trajetos com menor incidência de acidentes de trânsito (disponível nas próximas versões)
  
- 	* Criação de rotas incluindo espaços colturais de acordo com suas preferências (disponível nas próximas versões)
+ * Criação de rotas incluindo espaços culturais de acordo com suas preferências (disponível nas próximas versões)
  
-	* Visualização da quantidade de bicicletas nas estações Bike PoA (disponível nas próximas versões)
+ * Visualização da quantidade de bicicletas nas estações Bike POA (disponível nas próximas versões)
  
- 	* Informações sobre o estado de funcionamento das bicicletas do Bike POA (disponível nas próximas versões)
+ * Informações sobre o estado de funcionamento das bicicletas do Bike POA (disponível nas próximas versões)
 
-Vou de Bike POA é um projeto open source criado pela equipe 8cteto e utiliza dados de fontes abertas da Prefeitura Municial de Porto Alegre distribuidos no portal datapoa. Nossa ideia nasceu durante o evento GUDay 2014 promovido pela Sucesu-RS.
+Vou de Bike POA é um projeto open source criado pela equipe 8cteto e utiliza dados de fontes abertas da Prefeitura Municipal de Porto Alegre distribuídos no portal datapoa. Nossa ideia nasceu durante o evento GUDay 2014 promovido pela Sucesu-RS.
 
 Se você se interessar, estamos abertos a novos colaboradores e novas ideias. Contribua.
-
 
 ## Dataset abertos utilizados
 * http://datapoa.com.br/dataset/bikepoa
@@ -48,7 +47,6 @@ Se você se interessar, estamos abertos a novos colaboradores e novas ideias. Co
 
 ## Resources
 [Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
-
 
 ## License
 (The MIT License)
