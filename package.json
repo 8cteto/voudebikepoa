@@ -1,16 +1,18 @@
 {
-  "name": "voudebike",
-  "version": "1.0.0",
-  "description": "Vou de bike",
+  "name": "voudebikepoa",
+  "version": "1.1.0",
+  "description": "Vou de Bike POA",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/umovers/voudebike.git"
+    "url": "git://github.com/8cteto/voudebikepoa.git"
   },
   "keywords": [
     "bike",
     "guday",
-    "opendata"
+    "opendata",
+    "bikepoa",
+    "porto alegre"
   ],
   "dependencies": {
     "express": "3.x",
@@ -25,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/umovers/voudebike/issues"
+    "url": "https://github.com/8cteto/voudebikepoa/issues"
   },
   "engines": {
     "node": "0.10.x"

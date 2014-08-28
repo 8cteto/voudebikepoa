@@ -1,6 +1,5 @@
-[![Build Status](https://secure.travis-ci.org/umovers/voudebike.png?branch=master)](http://travis-ci.org/umovers/voudebike)
-
-# Vou de Bike POA
+[![Build Status](https://secure.travis-ci.org/8cteto/voudebikepoa.png?branch=master)](http://travis-ci.org/8cteto/voudebikepoa)
+#Vou de Bike POA
 
 Vou de Bike POA é uma ferramenta de apoio para todas as pessoas que utilizam a bicicleta como meio de transporte e que praticam o ciclismo como um estilo de vida contribuindo para a redução dos problemas de mobilidade urbana e para o meio ambiente, além de ser um hábito que contribui para a saúde dos praticantes do ciclismo.
  
@@ -20,29 +19,31 @@ Vou de Bike POA é um projeto open source criado pela equipe 8cteto e utiliza da
 
 Se você se interessar, estamos abertos a novos colaboradores e novas ideias. Contribua.
 
+Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBikePOA)!
+
 ## Dataset abertos utilizados
 * http://datapoa.com.br/dataset/bikepoa
 * http://datapoa.com.br/dataset/ciclovias-implantadas
 * http://datapoa.com.br/dataset/espacos-culturais
 * http://datapoa.com.br/dataset/acidentes-de-transito
 
-## Running
-* Install [Node.js](http://nodejs.org/)
-* Install [PostgreSQL](http://www.postgresql.org/) locally
-* Restore database backup (see below)
-* Run `npm install` to install dependencies listed in package.json
-* Run `node index.js` to run the app
-* Run `npm test` to run tests
+## Rodando localmente
+* Instale o [Node.js](http://nodejs.org/)
+* Instale o [PostgreSQL](http://www.postgresql.org/)
+* Execute os passos para configurar o banco (veja abaixo)
+* Execute `npm install` para instalar as dependencias listadas no package.json
+* Execute `node index.js` para executar este aplicativo
+* Execute `npm test` para executar os testes.
 
-#### To setup database
-* create a database called 'voudebike'
-* run the database script stored in 'resources/db.sql' psql or pgadmin III
-* run vacuum `vacuumdb -U postgres -d voudebike -z`
+### Para configurar o banco
+* Acesse o diretório do projeto
+* Conecte no banco de dados através do utilitário `psql`. Note que o banco **voudebike será apagado**, assim, é necessário conectar em qualquer outro banco (como sugestão, utilize o banco `postgres`)
+* Execute o script resources/setup_db.psql` através do comando abaixo:
+```
+\i resources/setup_db.psql
+```
 
-## Resources
-[Color palette](http://www.colourlovers.com/palette/155071/Rei_Ayanami)
-
-## License
+## Licença
 (The MIT License)
 
 Copyright (C) 2014 VouDeBike Development Team

@@ -1,84 +1,20 @@
---
--- PostgreSQL database dump
---
+BEGIN;
 
--- Dumped from database version 9.3.5
--- Dumped by pg_dump version 9.3.5
--- Started on 2014-08-15 21:08:13 BRT
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
---
--- TOC entry 176 (class 3079 OID 12018)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- TOC entry 2233 (class 0 OID 0)
--- Dependencies: 176
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
-SET search_path = public, pg_catalog;
-
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
---
--- TOC entry 170 (class 1259 OID 16422)
--- Name: ciclovias_implantadas; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
+DROP ROLE IF EXISTS voudebike_admin;
+CREATE ROLE voudebike_admin NOLOGIN;
 
 CREATE TABLE ciclovias_implantadas (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     gid integer,
     nome text,
     regiao text,
     geojson json
 );
 
-
---
--- TOC entry 171 (class 1259 OID 16428)
--- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE ciclovias_implantadas_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- TOC entry 2234 (class 0 OID 0)
--- Dependencies: 171
--- Name: ciclovias_implantadas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE ciclovias_implantadas_id_seq OWNED BY ciclovias_implantadas.id;
-
-
---
--- TOC entry 172 (class 1259 OID 16430)
--- Name: espacos_culturais; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
+ALTER TABLE ciclovias_implantadas OWNER TO voudebike_admin;
 
 CREATE TABLE espacos_culturais (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     endereco text,
     complemento text,
     cidade text,
@@ -97,35 +33,11 @@ CREATE TABLE espacos_culturais (
 );
 
 
---
--- TOC entry 173 (class 1259 OID 16436)
--- Name: espacos_culturais_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
 
-CREATE SEQUENCE espacos_culturais_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- TOC entry 2235 (class 0 OID 0)
--- Dependencies: 173
--- Name: espacos_culturais_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE espacos_culturais_id_seq OWNED BY espacos_culturais.id;
-
-
---
--- TOC entry 175 (class 1259 OID 16461)
--- Name: estacoes_bikepoa; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
+ALTER TABLE espacos_culturais OWNER TO voudebike_admin;
 
 CREATE TABLE estacoes_bikepoa (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     numero integer,
     nome text,
     latitude double precision,
@@ -133,58 +45,10 @@ CREATE TABLE estacoes_bikepoa (
 );
 
 
---
--- TOC entry 174 (class 1259 OID 16459)
--- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE estacoes_bikepoa_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+ALTER TABLE estacoes_bikepoa OWNER TO voudebike_admin;
 
 
---
--- TOC entry 2236 (class 0 OID 0)
--- Dependencies: 174
--- Name: estacoes_bikepoa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE estacoes_bikepoa_id_seq OWNED BY estacoes_bikepoa.id;
-
-
---
--- TOC entry 2104 (class 2604 OID 16446)
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY ciclovias_implantadas ALTER COLUMN id SET DEFAULT nextval('ciclovias_implantadas_id_seq'::regclass);
-
-
---
--- TOC entry 2105 (class 2604 OID 16447)
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY espacos_culturais ALTER COLUMN id SET DEFAULT nextval('espacos_culturais_id_seq'::regclass);
-
-
---
--- TOC entry 2106 (class 2604 OID 16464)
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY estacoes_bikepoa ALTER COLUMN id SET DEFAULT nextval('estacoes_bikepoa_id_seq'::regclass);
-
-
---
--- TOC entry 2220 (class 0 OID 16422)
--- Dependencies: 170
--- Data for Name: ciclovias_implantadas; Type: TABLE DATA; Schema: public; Owner: -
---
-
+-- DATA
 INSERT INTO ciclovias_implantadas VALUES (1, 1, 'JOAO PESSOA', 'NORTE', '{"type":"MultiLineString","coordinates":[[[-51.211805918,-30.0471114369996],[-51.212130817,-30.0466880679996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (2, 2, 'JOAO ANTONIO SILVEIRA', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.1323764969999,-30.1497002019996],[-51.13265538,-30.1500178959996]]]}');
 INSERT INTO ciclovias_implantadas VALUES (3, 3, 'JOAO ANTONIO SILVEIRA', 'SUL', '{"type":"MultiLineString","coordinates":[[[-51.1447392709999,-30.1572734609996],[-51.145541265,-30.1580246639996]]]}');
@@ -858,49 +722,5 @@ INSERT INTO estacoes_bikepoa VALUES (38, 38, 'Getulio_Vargas', -30.0544064300000
 
 SELECT pg_catalog.setval('estacoes_bikepoa_id_seq', 38, true);
 
-
---
--- TOC entry 2108 (class 2606 OID 16450)
--- Name: ciclovias_implantadas_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY ciclovias_implantadas
-    ADD CONSTRAINT ciclovias_implantadas_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 2110 (class 2606 OID 16452)
--- Name: espacos_culturais_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY espacos_culturais
-    ADD CONSTRAINT espacos_culturais_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 2112 (class 2606 OID 16469)
--- Name: estacoes_bikepoa_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY estacoes_bikepoa
-    ADD CONSTRAINT estacoes_bikepoa_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 2232 (class 0 OID 0)
--- Dependencies: 6
--- Name: public; Type: ACL; Schema: -; Owner: -
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM seba;
-GRANT ALL ON SCHEMA public TO seba;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
--- Completed on 2014-08-15 21:08:13 BRT
-
---
--- PostgreSQL database dump complete
---
+COMMIT;
 
