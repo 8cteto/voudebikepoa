@@ -44,7 +44,7 @@ Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBik
 ### Para configurar o banco
 * Acesse o diretório do projeto
 * Conecte no banco de dados através do utilitário `psql`. Note que o banco **voudebike será apagado**, assim, é necessário conectar em qualquer outro banco (como sugestão, utilize o banco `postgres`)
-* Execute o script resources/setup_db.psql` através do comando abaixo:
+* Execute o `script resources/setup_db.psql` através do comando abaixo:
 ```
 \i resources/setup_db.psql
 ```
