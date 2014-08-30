@@ -3,26 +3,37 @@
 #Vou de Bike POA
 ![Vou de Bike POA](https://raw.githubusercontent.com/8cteto/voudebikepoa/master/assets/images/logo2.png)
 
-Um aplicativo que permite traçar rota entre um ponto de partida e destino utilizando as bicicletas do BikePoa.
+![Vou de Bike POA](https://raw.githubusercontent.com/8cteto/voudebikepoa/master/assets/images/logo2.png)
 
-De onde eu estiver, poderei pedir para chegar a algum lugar utilizando as bicicletas do BikePoa.
+Vou de Bike POA é uma ferramenta de apoio para todas as pessoas que utilizam a bicicleta como meio de transporte e que praticam o ciclismo como um estilo de vida contribuindo para a redução dos problemas de mobilidade urbana e para o meio ambiente, além de ser um hábito que contribui para a saúde dos praticantes do ciclismo.
+ 
+Nossa ideia é facilitar seu passeio, além de torná-lo mais seguro e divertido. Hoje nossa App atende a cidade de Porto Alegre e nossa ideia é atender também outras cidades do Brasil.
 
-O software irá me sugerir o ponto mais próximo de onde eu estiver para pegar uma Bike e o ponto mais próximo do destino para devolve-la, além da rota entre estes pontos.
+As principais funcionalidades que você encontrará aqui são:
 
-Poderei também selecionar se gostaria de utilizar a rota mais rápida ou mais segura, utilizando assim as ciclovias e talvez dados de acidentes.
-Temos ainda a possibilidade de sugerir pontos turísticos e culturais na rota do passeio.
+* A localização de todas as estações do Bike Poa
+* Criação de rotas, incluindo a estação Bike Poa mais da sua localização atual e do seu local de destino
 
-Poderemos tentar facilitar também passeios de bike com sua própria bicicleta, permitindo utilizar os recursos de rota segura ou rápida entre pontos de partida e destino.
 
-Dataset que utilizaremos (se implementadas todas as funcionalidades):
+Funcionalidades em planejamento/implementação:
 
+* Criação de rotas para quem possui bicicleta e não necessita das informações do Bike POA 
+* Criação de rotas seguras, incluindo as ciclovias e trajetos com menor incidência de  acidentes de trânsito
+* Criação de rotas incluindo espaços culturais de acordo com suas preferências 
+* Visualização da quantidade de bicicletas nas estações Bike POA
+* Informações sobre o estado de funcionamento das bicicletas do Bike POA
+
+Vou de Bike POA é um projeto open source criado pela equipe 8cteto e utiliza dados de fontes abertas da Prefeitura Municipal de Porto Alegre distribuídos no portal datapoa. Nossa ideia nasceu durante o evento GUDay 2014 promovido pela Sucesu-RS.
+
+Se você se interessar, estamos abertos a novos colaboradores e novas ideias. Contribua!
+
+Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBikePOA)!
+
+## Dataset abertos utilizados
 * http://datapoa.com.br/dataset/bikepoa
 * http://datapoa.com.br/dataset/ciclovias-implantadas
 * http://datapoa.com.br/dataset/espacos-culturais
 * http://datapoa.com.br/dataset/acidentes-de-transito
-
-Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBikePOA)!
-
 
 ## Rodando localmente
 * Instale o [Node.js](http://nodejs.org/)
@@ -35,8 +46,7 @@ Mande seu feedback através de nossa [fanpage](https://www.facebook.com/VouDeBik
 ### Para configurar o banco
 * Acesse o diretório do projeto
 * Conecte no banco de dados através do utilitário `psql`. Note que o banco **voudebike será apagado**, assim, é necessário conectar em qualquer outro banco (como sugestão, utilize o banco `postgres`)
-* Execute o script resources/setup_db.psql` através do comando abaixo:
-
+* Execute o `script resources/setup_db.psql` através do comando abaixo:
 ```
 \i resources/setup_db.psql
 ```
