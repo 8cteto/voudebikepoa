@@ -9,7 +9,7 @@ alter table estacoes_bikepoa
 	add num_bicicletas integer,
 	add endereco text;
 
-create table bikepoa_mapaestacao (
+create table crawled_bikepoa_mapaestacao (
 	latitude float8,
 	longitude float8,
 	icone varchar,
