@@ -3,8 +3,6 @@
 #Vou de Bike POA
 ![Vou de Bike POA](https://raw.githubusercontent.com/8cteto/voudebikepoa/master/assets/images/logo2.png)
 
-![Vou de Bike POA](https://raw.githubusercontent.com/8cteto/voudebikepoa/master/assets/images/logo2.png)
-
 Vou de Bike POA é uma ferramenta de apoio para todas as pessoas que utilizam a bicicleta como meio de transporte e que praticam o ciclismo como um estilo de vida contribuindo para a redução dos problemas de mobilidade urbana e para o meio ambiente, além de ser um hábito que contribui para a saúde dos praticantes do ciclismo.
  
 Nossa ideia é facilitar seu passeio, além de torná-lo mais seguro e divertido. Hoje nossa App atende a cidade de Porto Alegre e nossa ideia é atender também outras cidades do Brasil.
