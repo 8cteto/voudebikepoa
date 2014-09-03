@@ -234,7 +234,7 @@ $(function() {
 	function loadBikeRacks() {
 		$.getJSON('/bikeRack/all', function(data) {
 			$.each(data, function(index, el) {
-				mapController.addBikeRack(el.nome.replace(/\_/g, ' '), el.latitude, el.longitude);
+				mapController.addBikeRack(el.name, el.lat, el.lng);
 			});
 		});
 	}

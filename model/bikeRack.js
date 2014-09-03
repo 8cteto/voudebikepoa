@@ -5,7 +5,7 @@ var BikeRack = function() {
 	BaseModel.apply(this);
 
 	this.findAll = function(callback) {
-		self.query('SELECT nome,latitude,longitude FROM Estacoes_bikePOA', [], callback);
+		self.query('SELECT * FROM Estacoes_bikePOA', [], callback);
 	};
 
 	this.getNearestStation = function(latlng, callback) {
