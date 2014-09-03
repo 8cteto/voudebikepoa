@@ -4,5 +4,6 @@ CREATE DATABASE voudebike;
 \i resources/00_basic.sql
 \i resources/01_nearest_bikestation.sql
 \i resources/02_create_crawled_bikepoa_mapaestacao.sql
+\i resources/03_nearest_bikestation_check_status.sql
 
 VACUUM ANALYZE;
