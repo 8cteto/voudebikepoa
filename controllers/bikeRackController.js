@@ -2,11 +2,12 @@ var 	url 		= require('url'),
 	BikeRack 	= require('../model/bikeRack');
 
 var BikeRackController = function() {
+	var self = this;
 
 	this.listAll = function(req, res) {
 		BikeRack.findAll(function(result) {
-			res.setHeader("Content-Type", "text/json");
-			res.end(JSON.stringify(result.rows));
+			res.setHeader("Content-Type", "application/json");
+			res.end(JSON.stringify(result));
 		});
 	};
 
@@ -17,7 +18,7 @@ var BikeRackController = function() {
 
 		BikeRack.getNearestStation(start, function(startStation) {
 			BikeRack.getNearestStation(end, function(endStation) {
-				res.setHeader("Content-Type", "text/json");
+				res.setHeader("Content-Type", "application/json");
 				res.end(JSON.stringify({
 					start: startStation,
 					end: endStation

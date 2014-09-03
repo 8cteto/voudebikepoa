@@ -4,15 +4,18 @@ describe('Validando o model bikeRack', function() {
 
 	var bikeRack = BikeRack;
 
-	it('Deve procurar todos os bicicletarios disponiveis', function() {
-		var expectedResult = [{lat:1, lng: 1, name:'Name'}];
+	it ('Deve procurar todos os bicicletarios disponiveis', function() {
+		var expectedResult = {rows: [{
+			latitude:1, longitude: 1, nome:'Name'}]};
 
 		bikeRack.query = function(query, params, cb) {
 			cb(expectedResult);
 		};
 
 		bikeRack.findAll(function(result) {
-			expect(result).toBe(expectedResult);
+			expect(result.name).toBe(expectedResult.nome);
+			expect(result.lat).toBe(expectedResult.latitude);
+			expect(result.lng).toBe(expectedResult.longitude);
 		});
 	});
 
