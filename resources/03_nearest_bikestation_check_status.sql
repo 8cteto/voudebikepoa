@@ -6,6 +6,7 @@ $$
 			longitude
 	FROM	estacoes_bikepoa
 	WHERE	status_operacao = 'EO'
+	AND		status_online = 'A'
 	AND		(num_bicicletas - vagas_ocupadas) > 0
 	ORDER	BY point(latitude, longitude) <-> origin
 	LIMIT	1;
