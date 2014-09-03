@@ -54,7 +54,7 @@ $(function() {
 		};
 
 		this.addBikeRack = function(rack) {
-			var icon = '/images/bikeRackOnline.png';
+			var icon = rack.online ? '/images/bikeRackOnline.png' : '/images/bikeRackOffline.png';
 
 			var info = '<div style="display: inline-block; width: 250px; height: 100px">' +
 				'<b>' + rack.name + '</b>' +
