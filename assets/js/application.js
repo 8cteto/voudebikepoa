@@ -53,18 +53,25 @@ $(function() {
 			self.destinationPosition = undefined;
 		};
 
-		this.addBikeRack = function(name, lat, lng) {
-			var marker = self.createMarker(name, lat, lng, {icon : '/images/bikeRackOnline.png'});
+		this.addBikeRack = function(rack) {
+			var icon = '/images/bikeRackOnline.png';
+
+			var info = '<div style="display: inline-block; width: 250px; height: 100px">' +
+				'<b>' + rack.name + '</b>' +
+				'<br>' + rack.address +
+				'<br><b>Status:</b> ' + (rack.online ? 'Em operação' : 'Fora de operação') +
+				'<br><b>Bicicletas disponíveis:</b> ' + rack.availableBikes + 
+				'<br><b>Vagas disponíveis:</b> ' + rack.availableSpots +
+				'</div>';
+
+			var marker = self.createMarker(rack.name, rack.lat, rack.lng, {icon : icon}, info);
 			self.bikeRacks.push(marker);
 		};
 
 		this.createMarker = function(name, lat, lng, opts, info) {
 			var position = new google.maps.LatLng(lat, lng);
 
-			var infoContent = name;
-			if (info) {
-				infoContent += '<br/>' + info;
-			}
+			var infoContent = info || name;
 
 			var options = {
 				title: name,
@@ -233,8 +240,8 @@ $(function() {
 
 	function loadBikeRacks() {
 		$.getJSON('/bikeRack/all', function(data) {
-			$.each(data, function(index, el) {
-				mapController.addBikeRack(el.name, el.lat, el.lng);
+			$.each(data, function(index, rack) {
+				mapController.addBikeRack(rack);
 			});
 		});
 	}
