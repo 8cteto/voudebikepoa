@@ -25,6 +25,8 @@ $(function() {
 			};
 
 			self.map = new google.maps.Map(mapContainer, mapOptions);
+
+			self.bikeRackInfoTemplate = Handlebars.compile($('#bikeRackInfoTemplate').html());
 		};
 
 		this.setCurrentPosition = function(lat, lng) {
@@ -55,14 +57,7 @@ $(function() {
 
 		this.addBikeRack = function(rack) {
 			var icon = rack.online ? '/images/bikeRackOnline.png' : '/images/bikeRackOffline.png';
-
-			var info = '<div style="display: inline-block; width: 250px; height: 100px">' +
-				'<b>' + rack.name + '</b>' +
-				'<br>' + rack.address +
-				'<br><b>Status:</b> ' + (rack.online ? 'Em operação' : 'Fora de operação') +
-				'<br><b>Bicicletas disponíveis:</b> ' + rack.availableBikes + 
-				'<br><b>Vagas disponíveis:</b> ' + rack.availableSpots +
-				'</div>';
+			var info = self.bikeRackInfoTemplate(rack);
 
 			var marker = self.createMarker(rack.name, rack.lat, rack.lng, {icon : icon}, info);
 			self.bikeRacks.push(marker);

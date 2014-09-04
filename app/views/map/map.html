@@ -1,4 +1,19 @@
+<script id="bikeRackInfoTemplate" type="text/x-handlebars-template">
+	<div class="bike-rack-info">
+		<b>{{name}}</b><br>
+		{{address}}<br>
+		<b>Status:</b>
+			{{#if online}}
+				Em operação
+			{{else}} 
+				Fora de operação
+			{{/if}}<br>
+		<b>Bicicletas disponíveis:</b>{{availableBikes}}<br>
+		<b>Vagas disponíveis:</b> {{availableSpots}}
+	</div>
+</script>
+
 <div class="map-container">
-    <div id="map-canvas"></div> 
+	<div id="map-canvas"></div> 
 </div>
 
