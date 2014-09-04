@@ -39,6 +39,48 @@ describe('Validando o model bikeRack', function() {
 		});
 	});
 
+	it ('Deve substituir underline por espaco na descrição dos bicicletarios', function() {
+		var expectedResult = self.validRow;
+		expectedResult.nome = 'Rack_Name';
+
+		bikeRack.query = function(query, params, cb) {
+			cb({rows: [expectedResult]});
+		};
+
+		bikeRack.findAll(function(result) {
+			var rack = result[0];
+			expect(rack.name).toBe('Rack Name');
+		});
+	});
+
+	it ('Deve deve considerar rack offline caso status online diferente de "A"', function() {
+		var expectedResult = self.validRow;
+		expectedResult.status_online = 'X';
+
+		bikeRack.query = function(query, params, cb) {
+			cb({rows: [expectedResult]});
+		};
+
+		bikeRack.findAll(function(result) {
+			var rack = result[0];
+			expect(rack.online).toBe(false);
+		});
+	});
+
+	it ('Deve deve considerar rack offline caso status operacao diferente de "EO"', function() {
+		var expectedResult = self.validRow;
+		expectedResult.status_operacao = 'EI';
+
+		bikeRack.query = function(query, params, cb) {
+			cb({rows: [expectedResult]});
+		};
+
+		bikeRack.findAll(function(result) {
+			var rack = result[0];
+			expect(rack.online).toBe(false);
+		});
+	});
+
 	it ('Deve procurar bicicletario mais proximo a um ponto', function() {
 		var 	latlng = '123,456',
 			expectedResult = {name: 'Nome', latitude: 1, longitude:2};
