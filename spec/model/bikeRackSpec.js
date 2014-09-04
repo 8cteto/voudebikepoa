@@ -2,20 +2,40 @@ var BikeRack = require('../../model/bikeRack');
 
 describe('Validando o model bikeRack', function() {
 
-	var bikeRack = BikeRack;
+	var 	self = this;
+		bikeRack = BikeRack;
+
+	beforeEach(function() {
+		self.validRow = {
+			nome: 'Bike Rack',
+			endereco: 'Address, 123',
+			latitude: 51.5033630,
+			longitude: -0.1776250,
+			num_bicicletas: 12,
+			vagas_ocupadas: 4,
+			status_online: 'A',
+			status_operacao: 'EO'
+		};
+	});
 
 	it ('Deve procurar todos os bicicletarios disponiveis', function() {
-		var expectedResult = {rows: [{
-			latitude:1, longitude: 1, nome:'Name'}]};
-
+		var expectedResult = self.validRow;
 		bikeRack.query = function(query, params, cb) {
-			cb(expectedResult);
+			cb({rows: [expectedResult]});
 		};
 
 		bikeRack.findAll(function(result) {
-			expect(result.name).toBe(expectedResult.nome);
-			expect(result.lat).toBe(expectedResult.latitude);
-			expect(result.lng).toBe(expectedResult.longitude);
+			expect(result.length).toBe(1);
+
+			var rack = result[0];
+			expect(rack.name).toBe(expectedResult.nome);
+			expect(rack.address).toBe(expectedResult.endereco);
+			expect(rack.lat).toBe(expectedResult.latitude);
+			expect(rack.lng).toBe(expectedResult.longitude);
+			expect(rack.totalSpots).toBe(expectedResult.num_bicicletas);
+			expect(rack.availableBikes).toBe(4);
+			expect(rack.availableSpots).toBe(8);
+			expect(rack.online).toBe(true);
 		});
 	});
 
