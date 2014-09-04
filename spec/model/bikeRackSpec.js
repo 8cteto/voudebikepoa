@@ -1,4 +1,4 @@
-var BikeRack = require('../../model/bikeRack');
+var BikeRack = require('../../app/model/bikeRack');
 
 describe('Validando o model bikeRack', function() {
 
