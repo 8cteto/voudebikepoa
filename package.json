@@ -19,7 +19,7 @@
     "express-partials": "0.3.x",
     "pg": "3.x",
     "logfmt": "1.x",
-    "ejs": "1.x",
+    "ejs": "2.x",
     "newrelic": "1.x"
   },
   "devDependencies": {
